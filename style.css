@@ -16,6 +16,315 @@
   --devai-max: 980px;
 }
 
+/* ── WordPress Twenty Sixteen nav override ─────────────────── */
+/* Replaces the default theme header with the devai-header look */
+.site-header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  -webkit-backdrop-filter: saturate(180%) blur(18px) !important;
+  backdrop-filter: saturate(180%) blur(18px) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.06) !important;
+  padding: 0 !important;
+}
+
+.site-header .site-branding {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 10px 22px !important;
+  gap: 20px !important;
+  flex-wrap: wrap !important;
+}
+
+.site-title {
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+}
+
+.site-title a {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif !important;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  color: #1d1d1f !important;
+  text-decoration: none !important;
+  letter-spacing: -0.02em !important;
+  white-space: nowrap !important;
+}
+
+.site-title a:hover {
+  color: #1d1d1f !important;
+  text-decoration: none !important;
+}
+
+/* Hide tagline and header image area */
+.site-description {
+  display: none !important;
+}
+
+.site-header-main {
+  padding: 0 !important;
+  border: none !important;
+}
+
+/* Nav container */
+.main-navigation {
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  float: none !important;
+  clear: none !important;
+}
+
+.main-navigation ul {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 3px !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.main-navigation ul li {
+  float: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  background: none !important;
+  position: static !important;
+}
+
+.main-navigation ul li a {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 6px 10px !important;
+  border-radius: 999px !important;
+  color: #4f4f54 !important;
+  text-decoration: none !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  line-height: 1.25 !important;
+  background: none !important;
+  border: none !important;
+  transition: background 0.2s ease, color 0.2s ease !important;
+  white-space: nowrap !important;
+}
+
+.main-navigation ul li a:hover {
+  color: #1d1d1f !important;
+  background: rgba(0, 0, 0, 0.05) !important;
+  text-decoration: none !important;
+}
+
+.main-navigation ul li.current-menu-item > a,
+.main-navigation ul li.current_page_item > a,
+.main-navigation ul li.current-menu-ancestor > a {
+  color: #1d1d1f !important;
+  background: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Hide mobile hamburger toggle on all sizes */
+.menu-toggle {
+  display: none !important;
+}
+
+/* Hide dropdown arrows and sub-menus */
+.main-navigation .dropdown-toggle,
+.main-navigation ul ul {
+  display: none !important;
+}
+
+@media (max-width: 980px) {
+  .site-header .site-branding {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+  }
+}
+/* ── end WordPress nav override ────────────────────────────── */
+
+/* ── Search bar ──────────────────────────────────────────────── */
+.devai-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-left: 6px;
+}
+
+.devai-search__btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 999px !important;
+  border: none !important;
+  background: none !important;
+  cursor: pointer !important;
+  color: #4f4f54 !important;
+  padding: 0 !important;
+  flex-shrink: 0;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.devai-search__btn:hover {
+  background: rgba(0, 0, 0, 0.05) !important;
+  color: #1d1d1f !important;
+}
+
+.devai-search__btn[aria-expanded="true"] {
+  background: rgba(0, 0, 0, 0.08) !important;
+  color: #1d1d1f !important;
+}
+
+.devai-search__popover {
+  display: none;
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  width: 340px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.14), 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  z-index: 2000;
+  animation: devai-search-in 0.18s ease;
+}
+
+.devai-search__popover.is-open {
+  display: block;
+}
+
+@keyframes devai-search-in {
+  from { opacity: 0; transform: translateY(-6px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0)    scale(1);    }
+}
+
+.devai-search__input {
+  width: 100% !important;
+  border: none !important;
+  outline: none !important;
+  padding: 14px 16px !important;
+  font-size: 15px !important;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif !important;
+  color: #1d1d1f !important;
+  background: transparent !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07) !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+.devai-search__input::placeholder {
+  color: #b0b0b8 !important;
+}
+
+.devai-search__results {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.devai-search__result {
+  display: block !important;
+  padding: 12px 16px !important;
+  text-decoration: none !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04) !important;
+  transition: background 0.12s ease !important;
+  cursor: pointer;
+}
+
+.devai-search__result:last-child {
+  border-bottom: none !important;
+}
+
+.devai-search__result:hover,
+.devai-search__result.is-active {
+  background: rgba(0, 113, 227, 0.06) !important;
+  text-decoration: none !important;
+}
+
+.devai-search__result-title {
+  display: block;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #1d1d1f !important;
+  margin-bottom: 3px !important;
+  line-height: 1.3 !important;
+}
+
+.devai-search__result-excerpt {
+  display: block;
+  font-size: 12px !important;
+  color: #6e6e73 !important;
+  line-height: 1.45 !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0 !important;
+}
+
+.devai-search__hl {
+  background: rgba(0, 113, 227, 0.12) !important;
+  color: #0071e3 !important;
+  border-radius: 3px;
+  padding: 0 2px;
+  font-style: normal;
+}
+
+.devai-search__result-excerpt .devai-search__hl {
+  background: transparent !important;
+  color: #0071e3 !important;
+  font-weight: 600 !important;
+}
+
+.devai-search__empty {
+  padding: 18px 16px !important;
+  font-size: 14px !important;
+  color: #6e6e73 !important;
+  text-align: center;
+  margin: 0 !important;
+}
+
+/* Keyboard shortcut hint inside the search button */
+.devai-search__shortcut {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 2px 7px 2px 6px;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.05);
+  font-size: 11px;
+  font-weight: 500;
+  color: #8e8e93;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  pointer-events: none;
+  margin-left: 4px;
+}
+
+@media (max-width: 768px) {
+  .devai-search__popover {
+    width: calc(100vw - 32px);
+    right: -8px;
+  }
+
+  .devai-search__shortcut {
+    display: none;
+  }
+}
+/* ── end search bar ──────────────────────────────────────────── */
+
 /* GitHub-only header/footer chrome */
 .devai-header {
   position: sticky;
@@ -801,3 +1110,109 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ── WordPress iframe embed mode ───────────────────────────── */
+/* Add this to Appearance → Additional CSS when using a single  */
+/* WordPress page with an <iframe src="your-github-pages-url">  */
+/* It strips the WP chrome so the iframe fills the full screen. */
+
+.devai-iframe-mode .site-header,
+.devai-iframe-mode .site-footer,
+.devai-iframe-mode .widget-area,
+.devai-iframe-mode .site-info,
+.devai-iframe-mode #colophon {
+  display: none !important;
+}
+
+.devai-iframe-mode #page,
+.devai-iframe-mode #content,
+.devai-iframe-mode .site-content,
+.devai-iframe-mode .entry-content,
+.devai-iframe-mode .post-content,
+.devai-iframe-mode article {
+  margin: 0 !important;
+  padding: 0 !important;
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+/* The iframe itself */
+.devai-iframe-mode iframe {
+  display: block !important;
+  width: 100% !important;
+  height: 100vh !important;
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* ── Alternatively: use these selectors WITHOUT the body class ─
+   Paste these directly if you want the iframe to always take
+   over on that specific WordPress page.                        */
+
+/* Hide all WP chrome */
+.site-header,
+.site-footer,
+#colophon,
+.widget-area,
+.site-info,
+#secondary {
+  display: none !important;
+}
+
+/* Strip every container of margin/padding/max-width */
+html, body,
+#page,
+#content,
+#primary,
+.site-content,
+.content-area,
+.entry-content,
+.post-content,
+.entry-header,
+.entry-footer,
+.hentry,
+.post-inner-content,
+article,
+.type-page {
+  margin: 0 !important;
+  padding: 0 !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  float: none !important;
+  border: none !important;
+  background: none !important;
+}
+
+/* Nuclear iframe fix — bypasses all WP container constraints */
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Hide the WP admin bar so it doesn't cover the iframe */
+#wpadminbar {
+  display: none !important;
+}
+
+/* Also tell WP not to push the body down for the admin bar */
+html {
+  margin-top: 0 !important;
+}
+
+.entry-content iframe,
+.post-content iframe {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  z-index: 9999 !important;
+  display: block !important;
+  transform: none !important;
+}
+/* ── end iframe embed mode ─────────────────────────────────── */
