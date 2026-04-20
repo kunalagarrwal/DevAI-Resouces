@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hugging Face — DevAI Resources</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="chrome-header">
+    <div class="chrome-header__inner">
+      <div class="brand-block">
+        <div class="brand-block__title"><a href="index.html">DevAI Resources</a></div>
+        <div class="brand-block__tagline">A curated guide for developers building with AI</div>
+      </div>
+      <nav class="site-nav" aria-label="Primary">
+        <ul class="site-nav__list">
+          <li><a href="index.html" class="site-nav__link">Home</a></li>
+          <li><a href="openai-docs.html" class="site-nav__link">OpenAI Docs</a></li>
+          <li><a href="anthropic.html" class="site-nav__link">Anthropic</a></li>
+          <li><a href="huggingface.html" class="site-nav__link is-current">Hugging Face</a></li>
+          <li><a href="tokenizer.html" class="site-nav__link">Tokenizer</a></li>
+          <li><a href="langchain.html" class="site-nav__link">LangChain</a></li>
+          <li><a href="prompting-guide.html" class="site-nav__link">Prompting Guide</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <section class="band band--white band--tight-top">
+      <div class="layout-constrain">
+        <div class="resource-lede">
+          <div class="resource-lede__tags">
+            <span class="resource-lede__tag">Model Hub</span>
+            <span class="resource-lede__tag">Open Source</span>
+            <span class="resource-lede__tag">Community Platform</span>
+          </div>
+          <h1 class="resource-lede__title">Hugging Face</h1>
+          <p class="resource-lede__url">URL: <a href="https://huggingface.co" target="_blank">https://huggingface.co</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band--tint">
+      <div class="layout-constrain">
+        <div class="article-stack">
+          <div class="feature-panel">
+            <h3 class="feature-panel__title">What is this resource?</h3>
+            <p>Hugging Face is the largest open-source AI platform on the web, serving as a hub for pre-trained models, datasets, and tools for working with machine learning. It hosts hundreds of thousands of models that anyone can download and use for free — including text generation models, image classifiers, speech recognition systems, and more. For developers who want to integrate AI without relying on a paid API, Hugging Face is the starting point.</p>
+          </div>
+
+          <div class="feature-panel">
+            <h3 class="feature-panel__title">What's in it?</h3>
+            <p>The platform has three main components. The <strong>Model Hub</strong> is a searchable library of pre-trained models contributed by research institutions, companies like Meta and Google, and independent developers. You can filter by task (text generation, summarization, translation, etc.), license, and language. The <strong>Datasets</strong> section provides access to thousands of publicly available training datasets. The <strong>Spaces</strong> section hosts live demos of models that you can try directly in the browser before downloading anything.</p>
+            <p>Hugging Face also maintains the <strong>Transformers library</strong> — an open-source Python library that provides a unified interface for downloading, running, and fine-tuning models locally. The documentation for Transformers is also hosted on the site and is the main reference for running models on your own machine. Additionally, the platform offers a free <strong>Inference API</strong> that lets you call many models via HTTP request without downloading them, which works similarly to OpenAI's API but for open-source models.</p>
+          </div>
+
+          <div class="feature-panel">
+            <h3 class="feature-panel__title">How is it relevant to your purpose?</h3>
+            <p>For developers integrating AI into an application, Hugging Face matters for a few reasons. First, it gives you access to powerful models at no cost — instead of paying per API call, you can download a model and run it locally, which is especially valuable for prototyping or for apps with high request volumes. Second, it opens up a wider range of specialized models that the major API providers don't offer, like domain-specific text classifiers or multilingual models. Third, understanding how to use the Transformers library and the Inference API is a genuinely marketable skill in the industry and a natural extension of the OpenAI API knowledge you'll build from the other resources in this guide.</p>
+          </div>
+
+          <aside class="tips-panel">
+            <h3 class="tips-panel__title">Tips for using this resource effectively</h3>
+            <ul>
+              <li>Use the <strong>task filter</strong> on the Model Hub to narrow down models by what you want to do (e.g., "text-generation", "question-answering") rather than browsing by name.</li>
+              <li>Check the <strong>model card</strong> before downloading anything — it explains what the model was trained on, its intended use, known limitations, and how to load it with the Transformers library.</li>
+              <li>Try the <strong>Spaces demos</strong> first — they let you test a model in the browser with no setup, which is the fastest way to see if it does what you need before committing to integrating it.</li>
+              <li>The <strong>Inference API</strong> (free tier available) is a good middle ground if you want to call open-source models via HTTP without downloading them — the API format is similar to what you already know from OpenAI.</li>
+              <li>Filter models by <strong>license</strong> if you're building something you plan to distribute or commercialize — not all models allow commercial use.</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="chrome-footer">
+    <div class="layout-constrain">
+      <p class="chrome-footer__legal">DevAI Resources &mdash; Kunal Agarwal &mdash; Penn State University &mdash; <a href="https://sites.psu.edu/devairesources">sites.psu.edu/devairesources</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

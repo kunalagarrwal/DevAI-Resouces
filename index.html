@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DevAI Resources — Integrating AI Into Your Application</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="chrome-header">
+    <div class="chrome-header__inner">
+      <div class="brand-block">
+        <div class="brand-block__title"><a href="index.html">DevAI Resources</a></div>
+        <div class="brand-block__tagline">A curated guide for developers building with AI</div>
+      </div>
+      <nav class="site-nav" aria-label="Primary">
+        <ul class="site-nav__list">
+          <li><a href="index.html" class="site-nav__link is-current">Home</a></li>
+          <li><a href="openai-docs.html" class="site-nav__link">OpenAI Docs</a></li>
+          <li><a href="anthropic.html" class="site-nav__link">Anthropic</a></li>
+          <li><a href="huggingface.html" class="site-nav__link">Hugging Face</a></li>
+          <li><a href="tokenizer.html" class="site-nav__link">Tokenizer</a></li>
+          <li><a href="langchain.html" class="site-nav__link">LangChain</a></li>
+          <li><a href="prompting-guide.html" class="site-nav__link">Prompting Guide</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="band band--white hero" aria-label="Hero">
+    <div class="layout-constrain">
+      <p class="hero__eyebrow">Developer Resource Guide</p>
+      <h1 class="hero__headline">Integrating AI Into<br>Your Application</h1>
+      <p class="hero__subhead">A curated collection of resources for CS students and developers who want to add real AI features — chatbots, LLM APIs, and token management — into their own projects.</p>
+    </div>
+  </section>
+
+  <main class="page-main">
+    <section class="band band--tint">
+      <div class="layout-constrain">
+        <h2 class="section-headline">About This Guide</h2>
+        <p>
+          Building an application is one thing. Integrating AI into it is something most CS courses don't cover directly.
+          Whether you're trying to add a chatbot to your app, work with a large language model API for the first time,
+          or figure out how token usage affects your costs, the gap between knowing how to code and knowing how AI tools
+          actually work in a real project is significant. This guide bridges that gap.
+        </p>
+        <p>
+          Each resource in this guide was selected because it addresses a specific, practical part of the AI integration
+          process — from choosing and calling an API, to managing tokens and costs, to building and deploying a
+          production-ready feature. Together, they form a complete starting point for any developer looking to go from
+          zero AI experience to a working AI-powered application.
+        </p>
+
+        <div class="pillar-grid">
+          <div class="pillar-card">
+            <h3 class="pillar-card__label">Intended Audience</h3>
+            <p>CS students and developers at any level who know how to code but have little or no experience working with AI APIs.</p>
+          </div>
+          <div class="pillar-card">
+            <h3 class="pillar-card__label">Purpose</h3>
+            <p>To help readers successfully integrate AI features — chatbots, completions, token management — into their own applications.</p>
+          </div>
+          <div class="pillar-card">
+            <h3 class="pillar-card__label">Assumed Knowledge</h3>
+            <p>Basic programming in Python or JavaScript, familiarity with REST APIs and HTTP requests, and some experience building a backend or web app.</p>
+          </div>
+          <div class="pillar-card">
+            <h3 class="pillar-card__label">Scope</h3>
+            <p>Covers API documentation, token management, open-source models, LLM frameworks, prompt engineering, and developer communities.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band--white">
+      <div class="layout-constrain">
+        <h2 class="section-headline">Table of Contents</h2>
+        <div class="toc-panel">
+          <div class="toc-panel__label">Resources in this guide</div>
+          <ol class="toc-panel__list">
+            <li>
+              <a href="openai-docs.html">OpenAI Platform Documentation</a>
+              <span class="toc-panel__summary">The official API reference for OpenAI models — the primary tool for building chatbots, completions, and AI features. Covers the Chat Completions endpoint, model selection, and token usage.</span>
+            </li>
+            <li>
+              <a href="anthropic.html">Anthropic API Documentation</a>
+              <span class="toc-panel__summary">Official documentation for Claude, Anthropic's LLM. A strong alternative to OpenAI with a focus on safety and long context windows — useful for document-heavy or complex applications.</span>
+            </li>
+            <li>
+              <a href="huggingface.html">Hugging Face</a>
+              <span class="toc-panel__summary">A platform for open-source AI models and datasets. Ideal for developers who want to self-host models, avoid API costs, or fine-tune models on their own data.</span>
+            </li>
+            <li>
+              <a href="tokenizer.html">OpenAI Tokenizer &amp; Tiktoken</a>
+              <span class="toc-panel__summary">An interactive tool and Python library for understanding and managing token usage. Essential for controlling costs and optimizing how your app communicates with LLMs.</span>
+            </li>
+            <li>
+              <a href="langchain.html">LangChain Documentation</a>
+              <span class="toc-panel__summary">A framework for building applications powered by LLMs. Simplifies chaining prompts, connecting to data sources, and building more advanced AI workflows beyond simple API calls.</span>
+            </li>
+            <li>
+              <a href="prompting-guide.html">Prompt Engineering Guide</a>
+              <span class="toc-panel__summary">A comprehensive, community-maintained guide to writing effective prompts for LLMs. Covers core techniques like few-shot prompting, chain-of-thought, and prompt formatting best practices.</span>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band--tint">
+      <div class="layout-constrain">
+        <h2 class="section-headline">Resources at a Glance</h2>
+        <div class="resource-deck">
+
+          <article class="resource-card">
+            <div class="resource-card__index" aria-hidden="true">1</div>
+            <div class="resource-card__body">
+              <h3 class="resource-card__title">OpenAI Platform Documentation</h3>
+              <p class="resource-card__blurb">Official API reference covering Chat Completions, model selection, token usage, rate limits, and pricing. The essential starting point for any AI integration.</p>
+              <a class="resource-card__link" href="openai-docs.html">View resource →</a>
+            </div>
+          </article>
+
+          <article class="resource-card">
+            <div class="resource-card__index" aria-hidden="true">2</div>
+            <div class="resource-card__body">
+              <h3 class="resource-card__title">Anthropic API Documentation</h3>
+              <p class="resource-card__blurb">Documentation for Claude — a powerful LLM alternative with a 200k token context window and a clean, developer-friendly API.</p>
+              <a class="resource-card__link" href="anthropic.html">View resource →</a>
+            </div>
+          </article>
+
+          <article class="resource-card">
+            <div class="resource-card__index" aria-hidden="true">3</div>
+            <div class="resource-card__body">
+              <h3 class="resource-card__title">Hugging Face</h3>
+              <p class="resource-card__blurb">The go-to hub for open-source AI models. Run models locally, avoid API costs, and access thousands of pre-trained models for any task.</p>
+              <a class="resource-card__link" href="huggingface.html">View resource →</a>
+            </div>
+          </article>
+
+          <article class="resource-card">
+            <div class="resource-card__index" aria-hidden="true">4</div>
+            <div class="resource-card__body">
+              <h3 class="resource-card__title">OpenAI Tokenizer &amp; Tiktoken</h3>
+              <p class="resource-card__blurb">An interactive tokenizer tool and Python library that lets you visualize and count tokens before making API calls — critical for managing costs.</p>
+              <a class="resource-card__link" href="tokenizer.html">View resource →</a>
+            </div>
+          </article>
+
+          <article class="resource-card">
+            <div class="resource-card__index" aria-hidden="true">5</div>
+            <div class="resource-card__body">
+              <h3 class="resource-card__title">LangChain Documentation</h3>
+              <p class="resource-card__blurb">A framework that makes it easier to build complex LLM-powered apps — chains, agents, memory, and data connectors all in one place.</p>
+              <a class="resource-card__link" href="langchain.html">View resource →</a>
+            </div>
+          </article>
+
+          <article class="resource-card">
+            <div class="resource-card__index" aria-hidden="true">6</div>
+            <div class="resource-card__body">
+              <h3 class="resource-card__title">Prompt Engineering Guide</h3>
+              <p class="resource-card__blurb">A free, comprehensive resource covering everything from basic prompting to advanced techniques like chain-of-thought and few-shot prompting.</p>
+              <a class="resource-card__link" href="prompting-guide.html">View resource →</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="chrome-footer">
+    <div class="layout-constrain">
+      <p class="chrome-footer__legal">DevAI Resources &mdash; Kunal Agarwal &mdash; Penn State University &mdash; <a href="https://sites.psu.edu/devairesources">sites.psu.edu/devairesources</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OpenAI Platform Documentation — DevAI Resources</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="chrome-header">
+    <div class="chrome-header__inner">
+      <div class="brand-block">
+        <div class="brand-block__title"><a href="index.html">DevAI Resources</a></div>
+        <div class="brand-block__tagline">A curated guide for developers building with AI</div>
+      </div>
+      <nav class="site-nav" aria-label="Primary">
+        <ul class="site-nav__list">
+          <li><a href="index.html" class="site-nav__link">Home</a></li>
+          <li><a href="openai-docs.html" class="site-nav__link is-current">OpenAI Docs</a></li>
+          <li><a href="anthropic.html" class="site-nav__link">Anthropic</a></li>
+          <li><a href="huggingface.html" class="site-nav__link">Hugging Face</a></li>
+          <li><a href="tokenizer.html" class="site-nav__link">Tokenizer</a></li>
+          <li><a href="langchain.html" class="site-nav__link">LangChain</a></li>
+          <li><a href="prompting-guide.html" class="site-nav__link">Prompting Guide</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <section class="band band--white band--tight-top">
+      <div class="layout-constrain">
+        <div class="resource-lede">
+          <div class="resource-lede__tags">
+            <span class="resource-lede__tag">API Documentation</span>
+            <span class="resource-lede__tag">Official Source</span>
+          </div>
+          <h1 class="resource-lede__title">OpenAI Platform Documentation</h1>
+          <p class="resource-lede__url">URL: <a href="https://platform.openai.com/docs" target="_blank">https://platform.openai.com/docs</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band--tint">
+      <div class="layout-constrain">
+        <div class="article-stack">
+          <div class="feature-panel">
+            <h3 class="feature-panel__title">What is this resource?</h3>
+            <p>The OpenAI Platform Documentation is the official technical reference maintained by OpenAI for developers who want to integrate AI capabilities into their own applications. It covers everything from making your first API call to building production-ready features using OpenAI's language models, including GPT-4o and GPT-3.5 Turbo. This is the primary resource for anyone working directly with OpenAI's API.</p>
+          </div>
+
+          <div class="feature-panel">
+            <h3 class="feature-panel__title">What's in it?</h3>
+            <p>The documentation is organized into several key areas. The Quickstart guide walks you through authentication, your first API call, and parsing the response. The Chat Completions section — the most important part for building any conversational feature — explains how to structure messages, manage conversation history, and control model behavior through parameters like temperature and max tokens. There are also dedicated sections on function calling (letting the model trigger actions in your app), embeddings, image generation, and audio. The docs also include a full model comparison page so you can choose the right model for your use case based on capability and cost.</p>
+            <p>Critically for developers, the documentation covers token usage in depth — explaining what tokens are, how they're counted, how conversation history length affects your token count per request, and how all of this maps to cost per API call. The rate limits section is also essential reading before you deploy anything.</p>
+          </div>
+
+          <div class="feature-panel">
+            <h3 class="feature-panel__title">How is it relevant to your purpose?</h3>
+            <p>If you're building any kind of AI-powered feature — a chatbot, a text generator, a question-answering system — you will almost certainly use the OpenAI API at some point. This documentation is where you'll find everything you need to make it work. For developers building something like a study tool or productivity app with AI, the Chat Completions and token management sections are directly applicable. Understanding how conversation context is passed in each API call, and how that affects both behavior and cost, is not intuitive when you're starting out, and this documentation explains it more clearly than any third-party tutorial.</p>
+          </div>
+
+          <aside class="tips-panel">
+            <h3 class="tips-panel__title">Tips for using this resource effectively</h3>
+            <ul>
+              <li>Start with the <strong>Quickstart</strong> section before reading anything else — get a working API call running first, then go deeper.</li>
+              <li>The <strong>Chat Completions</strong> guide is the most important section for building conversational features. Read it carefully, especially the part on how the <code>messages</code> array works.</li>
+              <li>Use the <strong>interactive Playground</strong> (linked from the dashboard) to test prompts and model behavior before writing any code.</li>
+              <li>Check the <strong>model pricing page</strong> early — knowing the cost per 1,000 tokens for each model will help you make smarter decisions about which model to use.</li>
+              <li>When troubleshooting, the <strong>Error Codes</strong> reference page explains every API error you might hit and how to handle it.</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="chrome-footer">
+    <div class="layout-constrain">
+      <p class="chrome-footer__legal">DevAI Resources &mdash; Kunal Agarwal &mdash; Penn State University &mdash; <a href="https://sites.psu.edu/devairesources">sites.psu.edu/devairesources</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

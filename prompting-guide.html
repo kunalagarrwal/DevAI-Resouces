@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prompt Engineering Guide — DevAI Resources</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="chrome-header">
+    <div class="chrome-header__inner">
+      <div class="brand-block">
+        <div class="brand-block__title"><a href="index.html">DevAI Resources</a></div>
+        <div class="brand-block__tagline">A curated guide for developers building with AI</div>
+      </div>
+      <nav class="site-nav" aria-label="Primary">
+        <ul class="site-nav__list">
+          <li><a href="index.html" class="site-nav__link">Home</a></li>
+          <li><a href="openai-docs.html" class="site-nav__link">OpenAI Docs</a></li>
+          <li><a href="anthropic.html" class="site-nav__link">Anthropic</a></li>
+          <li><a href="huggingface.html" class="site-nav__link">Hugging Face</a></li>
+          <li><a href="tokenizer.html" class="site-nav__link">Tokenizer</a></li>
+          <li><a href="langchain.html" class="site-nav__link">LangChain</a></li>
+          <li><a href="prompting-guide.html" class="site-nav__link is-current">Prompting Guide</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <section class="band band--white band--tight-top">
+      <div class="layout-constrain">
+        <div class="resource-lede">
+          <div class="resource-lede__tags">
+            <span class="resource-lede__tag">Reference Guide</span>
+            <span class="resource-lede__tag">Community Maintained</span>
+          </div>
+          <h1 class="resource-lede__title">Prompt Engineering Guide</h1>
+          <p class="resource-lede__url">URL: <a href="https://www.promptingguide.ai" target="_blank">https://www.promptingguide.ai</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band--tint">
+      <div class="layout-constrain">
+        <div class="article-stack">
+          <div class="feature-panel">
+            <h3 class="feature-panel__title">What is this resource?</h3>
+            <p>The Prompt Engineering Guide (promptingguide.ai) is a comprehensive, community-maintained reference for writing effective prompts for large language models. It covers everything from basic prompting principles to advanced techniques used in research and production applications. Unlike the official API documentation from OpenAI or Anthropic — which focuses on the technical mechanics of calling the API — this guide focuses specifically on how to communicate with the model effectively once you have it working. It's one of the most thorough and well-organized resources on prompt engineering available for free.</p>
+          </div>
+
+          <div class="feature-panel">
+            <h3 class="feature-panel__title">What's in it?</h3>
+            <p>The guide is organized into a progression from introductory to advanced content. The introductory sections cover what prompting is, how LLMs process input, and the basic elements of a well-structured prompt (instruction, context, input data, output format). From there, it covers specific prompting techniques including <strong>zero-shot prompting</strong> (giving the model a task with no examples), <strong>few-shot prompting</strong> (giving examples of the desired input-output format), and <strong>chain-of-thought prompting</strong> (asking the model to show its reasoning step by step before giving a final answer). The advanced sections cover techniques like self-consistency, tree-of-thought reasoning, and ReAct (reasoning and acting), which are used in more complex agent-based systems.</p>
+            <p>The site also has sections dedicated to specific applications — prompting for code generation, data analysis, and reasoning tasks — and a growing collection of model-specific guides that cover the quirks and best practices for individual models like GPT-4 and Claude.</p>
+          </div>
+
+          <div class="feature-panel">
+            <h3 class="feature-panel__title">How is it relevant to your purpose?</h3>
+            <p>Getting the API working is only half the challenge when integrating AI into an application. The other half is getting the model to consistently produce the output your app actually needs — the right format, the right level of detail, the right tone. Poorly written prompts lead to unpredictable responses, which creates bugs that are hard to debug because the model's behavior isn't deterministic. Understanding prompt engineering gives you practical control over that behavior. For example, if you're building a chatbot that needs to always respond in JSON, or a feature that should only answer questions within a specific domain, prompt engineering techniques are what make that possible reliably. This guide gives you the vocabulary and techniques to write system prompts that actually work.</p>
+          </div>
+
+          <aside class="tips-panel">
+            <h3 class="tips-panel__title">Tips for using this resource effectively</h3>
+            <ul>
+              <li>Read the <strong>Introduction</strong> and <strong>Basics</strong> sections first even if you've used LLMs before — the guide formalizes concepts you might have picked up informally and fills in gaps.</li>
+              <li><strong>Few-shot prompting</strong> is the single most useful technique for developers building structured outputs — if you need the model to return JSON or follow a specific format, include 2-3 examples in your prompt and the results improve dramatically.</li>
+              <li>Use <strong>chain-of-thought</strong> prompting when your application involves any kind of reasoning or multi-step problem solving — adding "let's think step by step" or structuring the prompt to show reasoning before the answer significantly improves accuracy.</li>
+              <li>The guide includes <strong>runnable examples</strong> that you can test in the OpenAI Playground — try them there before adapting them to your own use case.</li>
+              <li>Revisit this guide whenever a feature in your app isn't behaving as expected — the issue is often the prompt structure rather than the model itself, and this resource will help you diagnose it.</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="chrome-footer">
+    <div class="layout-constrain">
+      <p class="chrome-footer__legal">DevAI Resources &mdash; Kunal Agarwal &mdash; Penn State University &mdash; <a href="https://sites.psu.edu/devairesources">sites.psu.edu/devairesources</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

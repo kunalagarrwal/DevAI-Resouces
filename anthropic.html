@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anthropic API Documentation — DevAI Resources</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="chrome-header">
+    <div class="chrome-header__inner">
+      <div class="brand-block">
+        <div class="brand-block__title"><a href="index.html">DevAI Resources</a></div>
+        <div class="brand-block__tagline">A curated guide for developers building with AI</div>
+      </div>
+      <nav class="site-nav" aria-label="Primary">
+        <ul class="site-nav__list">
+          <li><a href="index.html" class="site-nav__link">Home</a></li>
+          <li><a href="openai-docs.html" class="site-nav__link">OpenAI Docs</a></li>
+          <li><a href="anthropic.html" class="site-nav__link is-current">Anthropic</a></li>
+          <li><a href="huggingface.html" class="site-nav__link">Hugging Face</a></li>
+          <li><a href="tokenizer.html" class="site-nav__link">Tokenizer</a></li>
+          <li><a href="langchain.html" class="site-nav__link">LangChain</a></li>
+          <li><a href="prompting-guide.html" class="site-nav__link">Prompting Guide</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <section class="band band--white band--tight-top">
+      <div class="layout-constrain">
+        <div class="resource-lede">
+          <div class="resource-lede__tags">
+            <span class="resource-lede__tag">API Documentation</span>
+            <span class="resource-lede__tag">Official Source</span>
+          </div>
+          <h1 class="resource-lede__title">Anthropic API Documentation</h1>
+          <p class="resource-lede__url">URL: <a href="https://docs.anthropic.com" target="_blank">https://docs.anthropic.com</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band--tint">
+      <div class="layout-constrain">
+        <div class="article-stack">
+          <div class="feature-panel">
+            <h3 class="feature-panel__title">What is this resource?</h3>
+            <p>The Anthropic API Documentation is the official developer reference for Claude, the large language model built by Anthropic. It covers everything you need to integrate Claude into your own application — from authentication and making API calls, to using advanced features like tool use, vision, and long-context document processing. Claude is one of the strongest alternatives to OpenAI's models and is worth knowing about as a developer building AI-powered applications.</p>
+          </div>
+
+          <div class="feature-panel">
+            <h3 class="feature-panel__title">What's in it?</h3>
+            <p>The documentation covers the core Messages API, which is how you send prompts to Claude and receive responses. It explains how to structure system prompts and user messages, control output length, and work with Claude's context window — which goes up to 200,000 tokens on certain models, significantly larger than most OpenAI models. There are detailed sections on tool use (function calling), vision capabilities for processing images, and streaming responses for real-time output in chat interfaces.</p>
+            <p>The docs also include a models overview page that compares Claude's available versions by capability, speed, and cost, as well as a section on prompt caching — a feature that lets you reduce costs by reusing previously processed context, which is especially useful for apps that repeatedly send the same system prompt or document as context.</p>
+          </div>
+
+          <div class="feature-panel">
+            <h3 class="feature-panel__title">How is it relevant to your purpose?</h3>
+            <p>For developers integrating AI into an application, knowing that there are multiple viable LLM providers — not just OpenAI — is important. Claude is particularly well-suited for applications that need to process long documents, maintain extended conversations, or handle complex reasoning tasks. If you're building something that involves uploading and analyzing files, or a chatbot that needs to remember a lot of context across a long session, Claude's large context window is a significant practical advantage. The API structure is also very similar to OpenAI's, so if you've already worked with OpenAI's Chat Completions endpoint, the transition is straightforward.</p>
+          </div>
+
+          <aside class="tips-panel">
+            <h3 class="tips-panel__title">Tips for using this resource effectively</h3>
+            <ul>
+              <li>Start with the <strong>Quickstart</strong> page — it gets you to a working API call in under five minutes and covers both Python and JavaScript examples.</li>
+              <li>Read the <strong>Models overview</strong> page early to understand the tradeoffs between Claude Haiku (fast, cheap), Claude Sonnet (balanced), and Claude Opus (most capable) — picking the right model matters a lot for cost and performance.</li>
+              <li>If your app involves long documents or extended conversations, pay attention to the <strong>context window</strong> section — Claude's 200k token limit is a major differentiator.</li>
+              <li>The <strong>prompt caching</strong> feature can reduce API costs by up to 90% in certain use cases — worth reading if you're building an app with a long, repeated system prompt.</li>
+              <li>Use the <strong>tool use</strong> section if you want Claude to trigger actions or look up data in your app rather than just generating text.</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="chrome-footer">
+    <div class="layout-constrain">
+      <p class="chrome-footer__legal">DevAI Resources &mdash; Kunal Agarwal &mdash; Penn State University &mdash; <a href="https://sites.psu.edu/devairesources">sites.psu.edu/devairesources</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

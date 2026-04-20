@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LangChain Documentation — DevAI Resources</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="chrome-header">
+    <div class="chrome-header__inner">
+      <div class="brand-block">
+        <div class="brand-block__title"><a href="index.html">DevAI Resources</a></div>
+        <div class="brand-block__tagline">A curated guide for developers building with AI</div>
+      </div>
+      <nav class="site-nav" aria-label="Primary">
+        <ul class="site-nav__list">
+          <li><a href="index.html" class="site-nav__link">Home</a></li>
+          <li><a href="openai-docs.html" class="site-nav__link">OpenAI Docs</a></li>
+          <li><a href="anthropic.html" class="site-nav__link">Anthropic</a></li>
+          <li><a href="huggingface.html" class="site-nav__link">Hugging Face</a></li>
+          <li><a href="tokenizer.html" class="site-nav__link">Tokenizer</a></li>
+          <li><a href="langchain.html" class="site-nav__link is-current">LangChain</a></li>
+          <li><a href="prompting-guide.html" class="site-nav__link">Prompting Guide</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <section class="band band--white band--tight-top">
+      <div class="layout-constrain">
+        <div class="resource-lede">
+          <div class="resource-lede__tags">
+            <span class="resource-lede__tag">Framework</span>
+            <span class="resource-lede__tag">Python / JavaScript</span>
+            <span class="resource-lede__tag">Official Docs</span>
+          </div>
+          <h1 class="resource-lede__title">LangChain Documentation</h1>
+          <p class="resource-lede__url">URL: <a href="https://python.langchain.com/docs" target="_blank">https://python.langchain.com/docs</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band--tint">
+      <div class="layout-constrain">
+        <div class="article-stack">
+          <div class="feature-panel">
+            <h3 class="feature-panel__title">What is this resource?</h3>
+            <p>LangChain is an open-source framework designed to make it easier to build applications powered by large language models. Rather than writing raw API calls and managing all the plumbing yourself, LangChain provides modular components for prompts, models, memory, data retrieval, and agents — all of which can be chained together to build more sophisticated AI workflows. The documentation at python.langchain.com is the official reference for LangChain's Python library, which is the most widely used version.</p>
+          </div>
+
+          <div class="feature-panel">
+            <h3 class="feature-panel__title">What's in it?</h3>
+            <p>The documentation is organized around LangChain's core concepts. <strong>Models</strong> covers how to connect to different LLM providers (OpenAI, Anthropic, Hugging Face, etc.) through a unified interface. <strong>Prompts</strong> explains how to build reusable prompt templates with variable inputs. <strong>Chains</strong> shows how to link multiple steps together — for example, taking a user question, retrieving relevant documents, and then passing both to the model for a grounded answer. <strong>Memory</strong> covers how to persist conversation history across multiple turns without managing it manually. <strong>Agents</strong> explains how to give the model access to tools — like web search or a calculator — so it can decide which tool to use based on the user's input.</p>
+            <p>The docs also include a substantial section on <strong>Retrieval-Augmented Generation (RAG)</strong>, which is the technique behind most "chat with your documents" applications. This covers vector stores, document loaders, and embedding models — all the components needed to let an LLM answer questions based on your own data rather than just its training knowledge.</p>
+          </div>
+
+          <div class="feature-panel">
+            <h3 class="feature-panel__title">How is it relevant to your purpose?</h3>
+            <p>Once you've gotten comfortable making basic API calls to an LLM, LangChain becomes the natural next step for building anything more complex. If you're building a chatbot that needs to remember conversation history, an app that answers questions based on uploaded documents, or a feature that lets the model call external tools, doing all of that from scratch with raw API calls is tedious and error-prone. LangChain handles the boilerplate so you can focus on the logic specific to your application. It also supports multiple LLM providers through the same interface, so switching from OpenAI to Anthropic or a Hugging Face model doesn't require rewriting your entire codebase.</p>
+          </div>
+
+          <aside class="tips-panel">
+            <h3 class="tips-panel__title">Tips for using this resource effectively</h3>
+            <ul>
+              <li>Start with the <strong>Introduction and Quickstart</strong> pages — they give you a clear mental model of how LangChain's components fit together before you try to use any of them.</li>
+              <li>The docs can feel overwhelming at first because the framework covers a lot. Focus on one concept at a time — get <strong>chains</strong> working before you try agents or RAG.</li>
+              <li>The <strong>How-to guides</strong> section is more practical than the conceptual docs — if you have a specific thing you're trying to do (like adding memory to a chatbot), go there first.</li>
+              <li>LangChain updates frequently, so always check the <strong>version number</strong> in the docs against what you have installed — breaking changes between versions are common.</li>
+              <li>If you're building a RAG application, the <strong>Q&amp;A over documents</strong> tutorial is the best starting point — it walks through the entire pipeline end to end with working code.</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="chrome-footer">
+    <div class="layout-constrain">
+      <p class="chrome-footer__legal">DevAI Resources &mdash; Kunal Agarwal &mdash; Penn State University &mdash; <a href="https://sites.psu.edu/devairesources">sites.psu.edu/devairesources</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

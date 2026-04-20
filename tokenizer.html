@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OpenAI Tokenizer & Tiktoken — DevAI Resources</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="chrome-header">
+    <div class="chrome-header__inner">
+      <div class="brand-block">
+        <div class="brand-block__title"><a href="index.html">DevAI Resources</a></div>
+        <div class="brand-block__tagline">A curated guide for developers building with AI</div>
+      </div>
+      <nav class="site-nav" aria-label="Primary">
+        <ul class="site-nav__list">
+          <li><a href="index.html" class="site-nav__link">Home</a></li>
+          <li><a href="openai-docs.html" class="site-nav__link">OpenAI Docs</a></li>
+          <li><a href="anthropic.html" class="site-nav__link">Anthropic</a></li>
+          <li><a href="huggingface.html" class="site-nav__link">Hugging Face</a></li>
+          <li><a href="tokenizer.html" class="site-nav__link is-current">Tokenizer</a></li>
+          <li><a href="langchain.html" class="site-nav__link">LangChain</a></li>
+          <li><a href="prompting-guide.html" class="site-nav__link">Prompting Guide</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <section class="band band--white band--tight-top">
+      <div class="layout-constrain">
+        <div class="resource-lede">
+          <div class="resource-lede__tags">
+            <span class="resource-lede__tag">Tool</span>
+            <span class="resource-lede__tag">Cost Management</span>
+            <span class="resource-lede__tag">Python Library</span>
+          </div>
+          <h1 class="resource-lede__title">OpenAI Tokenizer &amp; Tiktoken</h1>
+          <p class="resource-lede__url">
+            Interactive Tool: <a href="https://platform.openai.com/tokenizer" target="_blank">https://platform.openai.com/tokenizer</a><br>
+            Python Library: <a href="https://github.com/openai/tiktoken" target="_blank">https://github.com/openai/tiktoken</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band--tint">
+      <div class="layout-constrain">
+        <div class="article-stack">
+          <div class="feature-panel">
+            <h3 class="feature-panel__title">What is this resource?</h3>
+            <p>This entry covers two closely related resources that address one of the most overlooked aspects of building with LLM APIs: token management. The first is the <strong>OpenAI Tokenizer</strong>, an interactive web tool that lets you paste in any text and see exactly how it gets broken into tokens. The second is <strong>tiktoken</strong>, an open-source Python library from OpenAI that lets you count tokens programmatically in your code before making an API call. Understanding tokens is not optional — it directly affects how much you pay, how the model behaves, and whether your app will hit errors at runtime.</p>
+          </div>
+
+          <div class="feature-panel">
+            <h3 class="feature-panel__title">What's in it?</h3>
+            <p>The <strong>interactive Tokenizer tool</strong> (platform.openai.com/tokenizer) is a browser-based tool where you paste text and it highlights each token in a different color, shows the total token count, and displays the raw token IDs. You can switch between different tokenization encodings (cl100k_base for GPT-4 and GPT-3.5, etc.) to see how different models count the same text. It's the fastest way to develop intuition for how tokens work without writing any code.</p>
+            <p>The <strong>tiktoken library</strong> (GitHub) is the programmatic version of the same thing. You install it via pip, specify the encoding for your target model, and call it on any string to get an exact token count before you send the request. The GitHub README explains the API clearly and includes examples for the most common use cases — counting tokens in a chat conversation, truncating text to fit within a token budget, and handling special tokens used in the chat format.</p>
+          </div>
+
+          <div class="feature-panel">
+            <h3 class="feature-panel__title">How is it relevant to your purpose?</h3>
+            <p>Token management is one of the first things that surprises developers when they start building with LLM APIs. Most people expect to pay based on the number of messages or words — but APIs charge based on tokens, which don't map cleanly to either. A single word can be multiple tokens, and each API call includes not just the user's input but the entire conversation history and system prompt as context. Without understanding this, it's easy to write code that works fine in testing but becomes extremely expensive at scale, or that breaks entirely when a conversation grows long enough to exceed the model's context window limit. These two resources — the interactive tool for building intuition and tiktoken for programmatic control — are the practical solution to that problem.</p>
+          </div>
+
+          <aside class="tips-panel">
+            <h3 class="tips-panel__title">Tips for using this resource effectively</h3>
+            <ul>
+              <li>Use the <strong>interactive tokenizer first</strong> — paste in your system prompt and a sample conversation and look at the total count. This immediately shows you how fast tokens add up in a real application.</li>
+              <li>Install tiktoken early: <code>pip install tiktoken</code>. Add a token-counting function to your project before you start making real API calls so you can monitor usage from day one.</li>
+              <li>Pay attention to the <strong>encoding name</strong> — use <code>cl100k_base</code> for GPT-4 and GPT-3.5-turbo. Using the wrong encoding gives you inaccurate counts.</li>
+              <li>When building a chatbot, implement a <strong>message trimming strategy</strong> — if the conversation history grows too long, remove the oldest messages to stay within the model's context limit. Tiktoken makes it easy to check the count before each call.</li>
+              <li>Refer to the <strong>OpenAI cookbook on GitHub</strong> for a ready-made function that counts tokens for chat-formatted conversations — it handles the overhead tokens that the chat format itself adds.</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="chrome-footer">
+    <div class="layout-constrain">
+      <p class="chrome-footer__legal">DevAI Resources &mdash; Kunal Agarwal &mdash; Penn State University &mdash; <a href="https://sites.psu.edu/devairesources">sites.psu.edu/devairesources</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
