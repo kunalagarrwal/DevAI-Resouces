@@ -40,30 +40,53 @@
     }
   ];
 
+  function normalize(s) {
+    return (s || "")
+      .toLowerCase()
+      .replace(/[^\w\s-]/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
   /* ── scoring ─────────────────────────────────────────────── */
   function scoreItem(item, q) {
+    var tokens = q.split(" ").filter(Boolean);
     var score = 0;
-    var t = item.title.toLowerCase();
-    if (t === q)            score += 20;
-    if (t.startsWith(q))   score += 12;
-    if (t.includes(q))     score += 8;
-    item.tags.forEach(function (tag) {
-      if (tag === q)          score += 10;
-      if (tag.startsWith(q))  score += 6;
-      if (tag.includes(q))    score += 3;
+    var t = normalize(item.title);
+    var e = normalize(item.excerpt);
+    var tags = item.tags.map(normalize);
+
+    if (t === q) score += 40;
+    if (t.startsWith(q)) score += 24;
+    if (t.includes(q)) score += 12;
+
+    tokens.forEach(function (tok) {
+      if (!tok) return;
+      if (t.startsWith(tok)) score += 8;
+      if (t.includes(tok)) score += 4;
+      if (e.includes(tok)) score += 2;
+      tags.forEach(function (tag) {
+        if (tag === tok) score += 8;
+        if (tag.startsWith(tok)) score += 5;
+        if (tag.includes(tok)) score += 3;
+      });
     });
-    if (item.excerpt.toLowerCase().includes(q)) score += 2;
+
+    if (tokens.length > 1 && tokens.every(function (tok) { return t.includes(tok) || e.includes(tok); })) {
+      score += 8;
+    }
+
     return score;
   }
 
   function runSearch(query) {
     if (!query || query.trim().length < 1) return [];
-    var q = query.toLowerCase().trim();
+    var q = normalize(query);
     return INDEX
       .map(function (item) { return Object.assign({}, item, { score: scoreItem(item, q) }); })
       .filter(function (item) { return item.score > 0; })
       .sort(function (a, b) { return b.score - a.score; })
-      .slice(0, 5);
+      .slice(0, 7);
   }
 
   /* ── highlight matched text ──────────────────────────────── */
@@ -74,17 +97,28 @@
       '<mark class="devai-search__hl">$1</mark>');
   }
 
+  function defaultSuggestions() {
+    return INDEX.slice(0, 6).map(function (item, i) {
+      return Object.assign({}, item, { score: 100 - i });
+    });
+  }
+
   /* ── render results ──────────────────────────────────────── */
   function renderResults(items, query, container) {
     if (items.length === 0) {
       container.innerHTML = '<p class="devai-search__empty">No results for "<strong>' +
-        query + '</strong>"</p>';
+        query + '</strong>"<span class="devai-search__hint">Try keywords like <em>tokens</em>, <em>RAG</em>, <em>Claude</em>, or <em>prompting</em>.</span></p>';
       return;
     }
     container.innerHTML = items.map(function (r, i) {
+      var tags = (r.tags || []).slice(0, 3).map(function (tag) {
+        return '<span class="devai-search__tag">' + tag + '</span>';
+      }).join('');
+
       return '<a href="' + r.url + '" class="devai-search__result" data-i="' + i + '">' +
         '<span class="devai-search__result-title">' + hl(r.title, query) + '</span>' +
         '<span class="devai-search__result-excerpt">' + hl(r.excerpt, query) + '</span>' +
+        '<span class="devai-search__meta">' + tags + '</span>' +
         '</a>';
     }).join('');
   }
@@ -106,7 +140,13 @@
       isOpen = true;
       toggle.setAttribute('aria-expanded', 'true');
       popover.classList.add('is-open');
-      setTimeout(function () { input.focus(); }, 40);
+      if (!input.value.trim()) {
+        renderResults(defaultSuggestions(), '', results);
+      }
+      setTimeout(function () {
+        input.focus();
+        input.select();
+      }, 40);
     }
 
     function closeSearch() {
@@ -114,7 +154,7 @@
       activeIndex = -1;
       toggle.setAttribute('aria-expanded', 'false');
       popover.classList.remove('is-open');
-      input.value     = '';
+      input.value = '';
       results.innerHTML = '';
     }
 
@@ -126,7 +166,10 @@
     input.addEventListener('input', function () {
       activeIndex = -1;
       var q = this.value.trim();
-      if (!q) { results.innerHTML = ''; return; }
+      if (!q) {
+        renderResults(defaultSuggestions(), '', results);
+        return;
+      }
       renderResults(runSearch(q), q, results);
     });
 
@@ -145,7 +188,8 @@
         if (activeIndex >= 0) items[activeIndex].click();
         return;
       } else if (e.key === 'Escape') {
-        closeSearch(); return;
+        closeSearch();
+        return;
       }
       items.forEach(function (el, i) {
         el.classList.toggle('is-active', i === activeIndex);
@@ -161,6 +205,15 @@
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault();
         isOpen ? closeSearch() : openSearch();
+      }
+
+      /* / to open search when not typing elsewhere */
+      if (!isOpen && e.key === '/' && !e.metaKey && !e.ctrlKey && !e.altKey) {
+        var tag = (document.activeElement && document.activeElement.tagName || '').toLowerCase();
+        if (tag !== 'input' && tag !== 'textarea') {
+          e.preventDefault();
+          openSearch();
+        }
       }
     });
   }

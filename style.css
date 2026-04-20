@@ -155,38 +155,43 @@
 }
 /* ── end WordPress nav override ────────────────────────────── */
 
-/* ── Search bar ──────────────────────────────────────────────── */
+/* ── Search bar / command palette ───────────────────────────── */
 .devai-search {
   position: relative;
   display: flex;
   align-items: center;
-  margin-left: 6px;
+  margin-left: 8px;
 }
 
 .devai-search__btn {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  width: 32px !important;
-  height: 32px !important;
+  gap: 8px;
+  min-width: 86px;
+  height: 34px !important;
   border-radius: 999px !important;
-  border: none !important;
-  background: none !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  background: rgba(255, 255, 255, 0.94) !important;
   cursor: pointer !important;
   color: #4f4f54 !important;
-  padding: 0 !important;
+  padding: 0 10px !important;
   flex-shrink: 0;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .devai-search__btn:hover {
-  background: rgba(0, 0, 0, 0.05) !important;
+  background: #ffffff !important;
+  border-color: rgba(0, 113, 227, 0.35) !important;
   color: #1d1d1f !important;
+  box-shadow: 0 4px 14px rgba(0, 113, 227, 0.12);
 }
 
 .devai-search__btn[aria-expanded="true"] {
-  background: rgba(0, 0, 0, 0.08) !important;
+  background: rgba(0, 113, 227, 0.08) !important;
+  border-color: rgba(0, 113, 227, 0.4) !important;
   color: #1d1d1f !important;
+  box-shadow: 0 6px 18px rgba(0, 113, 227, 0.16);
 }
 
 .devai-search__popover {
@@ -194,14 +199,17 @@
   position: absolute;
   top: calc(100% + 12px);
   right: 0;
-  width: 340px;
-  background: #fff;
+  width: 420px;
+  max-width: min(420px, calc(100vw - 24px));
+  background: rgba(255, 255, 255, 0.98);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  backdrop-filter: saturate(180%) blur(14px);
   border-radius: 18px;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.14), 0 2px 8px rgba(0, 0, 0, 0.06);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 20px 55px rgba(15, 23, 42, 0.22), 0 2px 8px rgba(15, 23, 42, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.09);
   overflow: hidden;
-  z-index: 2000;
-  animation: devai-search-in 0.18s ease;
+  z-index: 2500;
+  animation: devai-search-in 0.2s ease;
 }
 
 .devai-search__popover.is-open {
@@ -209,59 +217,64 @@
 }
 
 @keyframes devai-search-in {
-  from { opacity: 0; transform: translateY(-6px) scale(0.98); }
-  to   { opacity: 1; transform: translateY(0)    scale(1);    }
+  from { opacity: 0; transform: translateY(-8px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .devai-search__input {
   width: 100% !important;
   border: none !important;
   outline: none !important;
-  padding: 14px 16px !important;
+  padding: 15px 16px !important;
   font-size: 15px !important;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif !important;
   color: #1d1d1f !important;
   background: transparent !important;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.07) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
   box-shadow: none !important;
   border-radius: 0 !important;
 }
 
 .devai-search__input::placeholder {
-  color: #b0b0b8 !important;
+  color: #8f8f96 !important;
 }
 
 .devai-search__results {
-  max-height: 300px;
+  max-height: 360px;
   overflow-y: auto;
+  padding: 6px;
 }
 
 .devai-search__result {
   display: block !important;
-  padding: 12px 16px !important;
+  padding: 10px 11px !important;
+  border-radius: 12px;
   text-decoration: none !important;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.04) !important;
-  transition: background 0.12s ease !important;
+  border: 1px solid transparent !important;
+  transition: background 0.14s ease, border-color 0.14s ease, transform 0.14s ease !important;
   cursor: pointer;
+  margin-bottom: 4px;
 }
 
 .devai-search__result:last-child {
-  border-bottom: none !important;
+  margin-bottom: 0;
 }
 
 .devai-search__result:hover,
 .devai-search__result.is-active {
-  background: rgba(0, 113, 227, 0.06) !important;
+  background: rgba(0, 113, 227, 0.08) !important;
+  border-color: rgba(0, 113, 227, 0.24) !important;
   text-decoration: none !important;
+  transform: translateY(-1px);
 }
 
 .devai-search__result-title {
   display: block;
   font-size: 14px !important;
-  font-weight: 600 !important;
+  font-weight: 650 !important;
   color: #1d1d1f !important;
   margin-bottom: 3px !important;
-  line-height: 1.3 !important;
+  line-height: 1.35 !important;
 }
 
 .devai-search__result-excerpt {
@@ -275,11 +288,29 @@
   margin: 0 !important;
 }
 
+.devai-search__meta {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 7px;
+}
+
+.devai-search__tag {
+  font-size: 10px;
+  font-weight: 600;
+  color: #5b5f66;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.09);
+  border-radius: 999px;
+  padding: 2px 7px;
+  line-height: 1.2;
+}
+
 .devai-search__hl {
-  background: rgba(0, 113, 227, 0.12) !important;
-  color: #0071e3 !important;
-  border-radius: 3px;
-  padding: 0 2px;
+  background: rgba(0, 113, 227, 0.14) !important;
+  color: #005fc2 !important;
+  border-radius: 4px;
+  padding: 0 3px;
   font-style: normal;
 }
 
@@ -287,43 +318,54 @@
   background: transparent !important;
   color: #0071e3 !important;
   font-weight: 600 !important;
+  padding: 0;
 }
 
 .devai-search__empty {
-  padding: 18px 16px !important;
-  font-size: 14px !important;
+  padding: 18px 14px !important;
+  font-size: 13px !important;
   color: #6e6e73 !important;
   text-align: center;
   margin: 0 !important;
 }
 
-/* Keyboard shortcut hint inside the search button */
+.devai-search__hint {
+  display: block;
+  margin-top: 8px;
+  font-size: 11px;
+  color: #8e8e93;
+}
+
 .devai-search__shortcut {
   display: inline-flex;
   align-items: center;
-  gap: 3px;
-  padding: 2px 7px 2px 6px;
-  border-radius: 6px;
+  padding: 1px 7px 2px;
+  border-radius: 7px;
   background: rgba(0, 0, 0, 0.05);
   font-size: 11px;
-  font-weight: 500;
-  color: #8e8e93;
+  font-weight: 600;
+  color: #7b7b83;
   border: 1px solid rgba(0, 0, 0, 0.1);
   pointer-events: none;
-  margin-left: 4px;
+  line-height: 1.2;
 }
 
 @media (max-width: 768px) {
   .devai-search__popover {
-    width: calc(100vw - 32px);
-    right: -8px;
+    width: calc(100vw - 20px);
+    right: -6px;
+  }
+
+  .devai-search__btn {
+    min-width: 40px;
+    padding: 0 !important;
   }
 
   .devai-search__shortcut {
     display: none;
   }
 }
-/* ── end search bar ──────────────────────────────────────────── */
+/* ── end search bar ─────────────────────────────────────────── */
 
 /* GitHub-only header/footer chrome */
 .devai-header {
