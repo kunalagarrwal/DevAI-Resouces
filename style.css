@@ -397,10 +397,16 @@
   text-decoration: none;
 }
 
+.devai-nav {
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px;
+}
+
 .devai-nav__list {
   list-style: none !important;
   display: flex !important;
-  flex-wrap: wrap !important;
+  flex-wrap: nowrap !important;
   align-items: center !important;
   gap: 3px !important;
   margin: 0 !important;
@@ -1214,10 +1220,11 @@ article,
 }
 
 /* Nuclear iframe fix — bypasses all WP container constraints */
+/* Note: overflow is NOT set to hidden here — the GitHub Pages site must scroll normally.
+   The WP iframe fills the viewport via position:fixed so no overflow change is needed. */
 body {
   margin: 0 !important;
   padding: 0 !important;
-  overflow: hidden !important;
 }
 
 /* Hide the WP admin bar so it doesn't cover the iframe */
