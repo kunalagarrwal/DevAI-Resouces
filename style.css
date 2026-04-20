@@ -406,9 +406,10 @@
 }
 
 .page-main .resource-lede__back {
-  margin: 0 0 12px !important;
-  font-size: 14px !important;
+  margin: 0 0 14px !important;
+  font-size: 13px !important;
   color: var(--devai-muted) !important;
+  letter-spacing: 0.01em;
 }
 
 .page-main .resource-lede__url {
@@ -423,12 +424,16 @@
 .page-main .article-stack {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 28px;
 }
 
 .page-main .feature-panel,
 .page-main .tips-panel {
   padding: 36px 40px !important;
+}
+
+.page-main .feature-panel {
+  border-top: 2px solid rgba(0, 0, 0, 0.04) !important;
 }
 
 .page-main .feature-panel__title,
@@ -448,6 +453,13 @@
 
 .page-main .tips-panel li {
   margin-bottom: 10px !important;
+}
+
+/* Complementary panel rhythm: media/code/callout read as supplementary blocks */
+.page-main .devai-video-panel,
+.page-main .devai-code-panel,
+.page-main .devai-callout {
+  border-top: 3px solid rgba(0, 113, 227, 0.24) !important;
 }
 
 .page-main .resource-deck {
@@ -542,27 +554,35 @@
 }
 
 .page-main .devai-video-panel__label {
-  font-size: 11px !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px !important;
+  border-radius: 999px;
+  background: rgba(0, 113, 227, 0.08) !important;
+  border: 1px solid rgba(0, 113, 227, 0.2) !important;
+  font-size: 10px !important;
   font-weight: 700 !important;
   text-transform: uppercase;
   letter-spacing: 0.07em;
   color: var(--devai-link) !important;
-  margin: 0 0 6px !important;
+  margin: 0 0 10px !important;
 }
 
 .page-main .devai-video-panel__title {
-  font-size: 22px !important;
+  font-size: 24px !important;
   font-weight: 700 !important;
   line-height: 1.2 !important;
   letter-spacing: -0.02em !important;
   color: var(--devai-text) !important;
-  margin: 0 0 4px !important;
+  margin: 0 0 6px !important;
 }
 
 .page-main .devai-video-panel__desc {
-  font-size: 14px !important;
+  font-size: 15px !important;
   color: var(--devai-muted) !important;
-  margin: 0 0 18px !important;
+  margin: 0 0 16px !important;
+  max-width: 72ch;
 }
 
 .page-main .devai-video-wrap {
@@ -601,7 +621,7 @@
 }
 
 .page-main .devai-code-panel__title {
-  font-size: 22px !important;
+  font-size: 24px !important;
   font-weight: 700 !important;
   line-height: 1.2 !important;
   letter-spacing: -0.02em !important;
@@ -610,24 +630,50 @@
 }
 
 .page-main .devai-code-panel__desc {
-  font-size: 14px !important;
+  font-size: 15px !important;
   color: var(--devai-muted) !important;
-  margin: 0 0 18px !important;
+  margin: 0 0 16px !important;
+  max-width: 72ch;
 }
 
 .page-main .devai-code-block {
-  background: #1c1c1e !important;
+  position: relative;
+  background: #111318 !important;
   border-radius: 12px !important;
-  padding: 24px 26px !important;
+  padding: 54px 22px 22px !important;
   overflow-x: auto;
   margin: 0 !important;
-  border: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.page-main .devai-code-block::before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: 16px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff5f57;
+  box-shadow: 16px 0 0 #febc2e, 32px 0 0 #28c840;
+}
+
+.page-main .devai-code-block::after {
+  content: "example.py";
+  position: absolute;
+  top: 12px;
+  left: 64px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #9ca3af;
+  letter-spacing: 0.01em;
 }
 
 .page-main .devai-code-block code {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace !important;
   font-size: 13px !important;
-  line-height: 1.7 !important;
+  line-height: 1.65 !important;
   color: #e5e5ea !important;
   background: none !important;
   border: none !important;
@@ -647,7 +693,7 @@
 
 /* ── Callout box ───────────────────────────────────────────── */
 .page-main .devai-callout {
-  background: linear-gradient(135deg, rgba(0,113,227,0.055) 0%, rgba(0,113,227,0.02) 100%) !important;
+  background: linear-gradient(135deg, rgba(255, 248, 234, 0.9) 0%, rgba(255, 255, 255, 0.85) 100%) !important;
   border: 1px solid rgba(0,113,227,0.18) !important;
   border-left: 4px solid var(--devai-link) !important;
   border-radius: var(--devai-radius) !important;
@@ -655,51 +701,69 @@
 }
 
 .page-main .devai-callout__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   font-size: 11px !important;
   font-weight: 700 !important;
   text-transform: uppercase;
   letter-spacing: 0.07em;
   color: var(--devai-link) !important;
-  margin: 0 0 8px !important;
+  margin: 0 0 10px !important;
+}
+
+.page-main .devai-callout__label::before {
+  content: "💡";
+  font-size: 14px;
+  line-height: 1;
 }
 
 .page-main .devai-callout p {
   margin: 0 !important;
   font-size: 15px !important;
   color: var(--devai-text) !important;
-  line-height: 1.6 !important;
+  line-height: 1.65 !important;
 }
 
 /* ── Stat pills row ────────────────────────────────────────── */
 .page-main .devai-stats {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
   gap: 12px;
-  margin-top: 20px !important;
+  margin-top: 18px !important;
 }
 
 .page-main .devai-stat {
-  background: var(--devai-bg-alt) !important;
-  border: 1px solid var(--devai-border) !important;
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9fc 100%) !important;
+  border: 1px solid rgba(0, 0, 0, 0.09) !important;
   border-radius: 14px !important;
-  padding: 16px 22px !important;
-  min-width: 110px;
+  padding: 16px 16px 15px !important;
+  min-width: 0;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.page-main .devai-stat:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
 }
 
 .page-main .devai-stat__value {
-  font-size: 22px !important;
+  font-size: 26px !important;
   font-weight: 700 !important;
   color: var(--devai-text) !important;
   line-height: 1.1 !important;
-  margin: 0 0 4px !important;
-  letter-spacing: -0.02em;
+  margin: 0 0 5px !important;
+  letter-spacing: -0.03em;
 }
 
 .page-main .devai-stat__label {
-  font-size: 12px !important;
+  font-size: 11px !important;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
   color: var(--devai-muted) !important;
   margin: 0 !important;
-  line-height: 1.3 !important;
+  line-height: 1.35 !important;
 }
 
 /* ── Responsive additions ──────────────────────────────────── */
@@ -710,14 +774,30 @@
   }
 
   .page-main .devai-code-block {
-    padding: 18px !important;
+    padding: 46px 16px 16px !important;
   }
 
   .page-main .devai-code-block code {
     font-size: 12px !important;
   }
 
+  .page-main .devai-code-block::after {
+    left: 16px;
+    top: 30px;
+  }
+
   .page-main .devai-callout {
     padding: 20px 22px !important;
+  }
+
+  .page-main .devai-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 560px) {
+  .page-main .devai-stats {
+    grid-template-columns: 1fr;
   }
 }
