@@ -5,9 +5,12 @@
   --devai-bg-alt: #f5f5f7;
   --devai-text: #1d1d1f;
   --devai-muted: #6e6e73;
+  --devai-muted-soft: #8b8b90;
   --devai-link: #0071e3;
   --devai-link-hover: #0077ed;
   --devai-border: rgba(0, 0, 0, 0.08);
+  --devai-border-soft: rgba(0, 0, 0, 0.05);
+  --devai-accent-glow: rgba(0, 113, 227, 0.16);
   --devai-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
   --devai-shadow-hover: 0 14px 36px rgba(0, 0, 0, 0.1);
   --devai-radius: 18px;
@@ -22,6 +25,8 @@
   font-size: 17px !important;
   line-height: 1.6 !important;
   margin: 0 !important;
+  position: relative;
+  isolation: isolate;
 }
 
 :where(.entry-content, .post-content) .page-main *,
@@ -46,6 +51,7 @@
   width: 100%;
   padding: clamp(5rem, 9vw, 6.5rem) clamp(1.25rem, 4vw, 2.5rem) !important;
   margin: 0 !important;
+  position: relative;
 }
 
 :where(.entry-content, .post-content) .page-main .band--white,
@@ -55,7 +61,17 @@
 
 :where(.entry-content, .post-content) .page-main .band--tint,
 .page-main .band--tint {
-  background: var(--devai-bg-alt) !important;
+  background: linear-gradient(180deg, #f7f7f9 0%, var(--devai-bg-alt) 100%) !important;
+}
+
+:where(.entry-content, .post-content) .page-main .band--tint::before,
+.page-main .band--tint::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 12% 20%, rgba(0, 113, 227, 0.08), transparent 35%),
+    radial-gradient(circle at 88% 80%, rgba(0, 113, 227, 0.05), transparent 30%);
+  pointer-events: none;
 }
 
 :where(.entry-content, .post-content) .page-main .band--tight-top,
@@ -73,14 +89,29 @@
 :where(.entry-content, .post-content) .page-main .hero,
 .page-main .hero {
   text-align: center;
+  overflow: hidden;
+}
+
+:where(.entry-content, .post-content) .page-main .hero::after,
+.page-main .hero::after {
+  content: "";
+  width: min(720px, 86%);
+  height: 210px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 18px;
+  background: radial-gradient(ellipse at center, rgba(0, 113, 227, 0.12) 0%, rgba(0, 113, 227, 0) 70%);
+  pointer-events: none;
 }
 
 :where(.entry-content, .post-content) .page-main .hero__eyebrow,
 .page-main .hero__eyebrow {
   font-size: 12px !important;
-  color: var(--devai-muted) !important;
+  color: var(--devai-muted-soft) !important;
   letter-spacing: 0.03em;
   margin: 0 0 12px !important;
+  text-transform: uppercase;
 }
 
 :where(.entry-content, .post-content) .page-main .hero__headline,
@@ -109,6 +140,18 @@
   letter-spacing: -0.035em !important;
   margin: 0 0 20px !important;
   color: var(--devai-text) !important;
+  position: relative;
+}
+
+:where(.entry-content, .post-content) .page-main .section-headline::after,
+.page-main .section-headline::after {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 3px;
+  border-radius: 999px;
+  margin-top: 14px;
+  background: linear-gradient(90deg, rgba(0, 113, 227, 0.95), rgba(0, 113, 227, 0.22));
 }
 
 :where(.entry-content, .post-content) .page-main p,
@@ -136,14 +179,26 @@
 :where(.entry-content, .post-content) .page-main .tips-panel,
 .page-main .tips-panel {
   background: #fff !important;
-  border: 1px solid var(--devai-border) !important;
+  border: 1px solid var(--devai-border-soft) !important;
   border-radius: var(--devai-radius) !important;
   box-shadow: var(--devai-shadow) !important;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
 }
 
 :where(.entry-content, .post-content) .page-main .pillar-card,
 .page-main .pillar-card {
   padding: 26px 24px !important;
+}
+
+:where(.entry-content, .post-content) .page-main .pillar-card:hover,
+.page-main .pillar-card:hover,
+:where(.entry-content, .post-content) .page-main .feature-panel:hover,
+.page-main .feature-panel:hover,
+:where(.entry-content, .post-content) .page-main .tips-panel:hover,
+.page-main .tips-panel:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0, 113, 227, 0.2) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.09), 0 4px 16px var(--devai-accent-glow) !important;
 }
 
 :where(.entry-content, .post-content) .page-main .pillar-card__label,
@@ -158,6 +213,7 @@
 .page-main .toc-panel {
   padding: 36px !important;
   margin-top: 30px !important;
+  background: linear-gradient(180deg, #ffffff 0%, #fcfcfd 100%) !important;
 }
 
 :where(.entry-content, .post-content) .page-main .toc-panel__label,
@@ -205,8 +261,8 @@
 
 :where(.entry-content, .post-content) .page-main .resource-card:hover,
 .page-main .resource-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--devai-shadow-hover) !important;
+  transform: translateY(-4px) scale(1.005);
+  box-shadow: var(--devai-shadow-hover), 0 2px 14px var(--devai-accent-glow) !important;
 }
 
 :where(.entry-content, .post-content) .page-main .resource-card__index,
@@ -242,6 +298,13 @@
 :where(.entry-content, .post-content) .page-main .resource-card__link,
 .page-main .resource-card__link {
   font-size: 15px !important;
+  font-weight: 500 !important;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+:where(.entry-content, .post-content) .page-main .resource-card__link:hover,
+.page-main .resource-card__link:hover {
+  transform: translateX(2px);
 }
 
 :where(.entry-content, .post-content) .page-main .resource-lede__tags,
@@ -254,7 +317,7 @@
 
 :where(.entry-content, .post-content) .page-main .resource-lede__tag,
 .page-main .resource-lede__tag {
-  background: var(--devai-bg-alt) !important;
+  background: linear-gradient(180deg, #ffffff 0%, var(--devai-bg-alt) 100%) !important;
   color: var(--devai-muted) !important;
   border: 1px solid var(--devai-border) !important;
   border-radius: 999px;
@@ -276,6 +339,9 @@
   color: var(--devai-muted) !important;
   font-size: 14px !important;
   margin: 0 !important;
+  padding-bottom: 2px;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.14);
+  display: inline-block;
 }
 
 :where(.entry-content, .post-content) .page-main .article-stack,
