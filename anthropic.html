@@ -63,7 +63,7 @@
           <p class="resource-lede__url">URL: <a href="https://docs.anthropic.com" target="_blank">https://docs.anthropic.com</a></p>
           <div class="devai-stats">
             <div class="devai-stat">
-              <p class="devai-stat__value">200k</p>
+              <p class="devai-stat__value">1M</p>
               <p class="devai-stat__label">Token context window</p>
             </div>
             <div class="devai-stat">
@@ -91,29 +91,29 @@
           <!-- What is this resource? -->
           <div class="feature-panel">
             <h3 class="feature-panel__title">What is this resource?</h3>
-            <p>The Anthropic API Documentation is the official developer reference for Claude, the large language model family built by Anthropic. It is a complete technical guide covering everything required to integrate Claude into a software application — from API authentication and your first message request, to advanced features like tool use, vision processing, and prompt caching for cost optimization. Claude is one of the most capable and widely-used commercial LLMs available and represents a strong alternative (or complement) to OpenAI's models for developers building AI applications.</p>
-            <p>Anthropic was founded with a specific focus on AI safety, and that philosophy shapes Claude's behavior: the model is designed to be helpful, harmless, and honest, which in practice means it tends to produce more measured, well-reasoned outputs and is less likely to generate problematic content. For developers building consumer-facing applications, that behavioral profile is often a meaningful practical advantage beyond raw capability benchmarks.</p>
+            <p>The Anthropic API Documentation is the official developer reference for Claude, the large language model family built by Anthropic. It is a complete technical guide covering everything required to integrate Claude into a software application — from API authentication and your first message request, to advanced features like tool use, vision processing, Extended Thinking, and prompt caching for cost optimization. As of April 2026, the current model lineup is <strong>Claude Opus 4.7</strong> (released April 2026, $5/$25 per 1M tokens), <strong>Claude Sonnet 4.6</strong> ($3/$15), and <strong>Claude Haiku 4.5</strong> ($1/$5) — with Opus 4.7 and Sonnet 4.6 both supporting a full <strong>1-million-token context window</strong>.</p>
+            <p>Anthropic was founded with a specific focus on AI safety, and that philosophy shapes Claude's behavior: the model is designed to be helpful, harmless, and honest. Claude's flagship differentiator in 2025–2026 is <strong>Extended Thinking</strong> — a mode where Claude explicitly externalizes its reasoning chain before answering, similar to OpenAI's o-series models but with more developer control. You can set a token budget for thinking, and Claude uses that budget to reason through complex problems before producing its final response. Anthropic also released <strong>Adaptive Thinking</strong> on Haiku 4.5, which dynamically decides how much thinking to apply based on question complexity — making it highly efficient for mixed workloads.</p>
           </div>
 
           <!-- What's in it? -->
           <div class="feature-panel">
             <h3 class="feature-panel__title">What's in it?</h3>
             <p>The core of the documentation is the <strong>Messages API</strong> reference, which covers how to send prompts to Claude and receive responses. Unlike OpenAI's API, Anthropic separates the system prompt from the conversation messages — the <code>system</code> parameter is a top-level field in the request, not a message in the <code>messages</code> array. This structural difference is small but meaningful: it makes it easier to keep your behavioral instructions cleanly separated from the conversation history.</p>
-            <p>The <strong>Models</strong> overview page is one of the most practically useful pages in the docs. It describes the three tiers of Claude models: Claude Haiku (smallest, fastest, cheapest — ideal for high-volume tasks like classification or data extraction), Claude Sonnet (the balanced workhorse for most production use cases), and Claude Opus (the most capable model, suited for complex reasoning and analysis). Choosing the right model for each task is one of the most impactful optimizations available to any developer using the API.</p>
-            <p>The <strong>Tool Use</strong> section (equivalent to OpenAI's function calling) explains how to define tools as JSON schemas and let the model decide when and how to call them. The <strong>Vision</strong> section covers sending images alongside text prompts for tasks like document analysis or UI screenshot interpretation. The <strong>Prompt Caching</strong> section documents a unique Anthropic feature: you can mark portions of your prompt (like a long system prompt or a large document) to be cached server-side, so repeated requests that include the same cached content cost significantly less. On long, repeated system prompts, this can cut costs by up to 90%.</p>
+            <p>The <strong>Models</strong> overview page is one of the most practically useful pages in the docs. It describes the three tiers: <strong>Haiku 4.5</strong> (smallest, fastest, cheapest at $1/$5 — ideal for high-volume tasks with Adaptive Thinking), <strong>Sonnet 4.6</strong> ($3/$15, the production workhorse with 1M context), and <strong>Opus 4.7</strong> ($5/$25, the most capable for complex reasoning, research, and long-document analysis, also 1M context). Choosing the right model for each task is one of the most impactful optimizations available to any developer using the API.</p>
+            <p>The <strong>Extended Thinking</strong> section is new and critically important for 2025+. You enable it by passing <code>"thinking": {"type": "enabled", "budget_tokens": N}</code> in your request, and Claude produces a <code>thinking</code> content block (visible to you for debugging) before its final response. This dramatically improves performance on multi-step reasoning, math, and complex analysis tasks. The <strong>Prompt Caching</strong> feature lets you cache repeated content (system prompts, large documents) server-side, cutting those tokens' cost by up to 90%. The <strong>Batch API</strong> processes requests asynchronously with a 50% discount and supports up to 300,000 output tokens per batch — ideal for bulk document processing.</p>
           </div>
 
           <!-- How is it relevant? -->
           <div class="feature-panel">
             <h3 class="feature-panel__title">How is it relevant to your purpose?</h3>
-            <p>For developers building AI-powered applications, treating OpenAI as the only option is a strategic mistake. Claude offers several capabilities that matter specifically in application development contexts. The most significant is the <strong>200,000-token context window</strong> available on Claude's larger models — compared to GPT-4o's 128k window. In concrete terms, 200k tokens is roughly 150,000 words, meaning you can send an entire book-length document as context in a single API call. For applications that involve processing uploaded files, legal documents, lengthy reports, or codebases, this difference is not a minor technical detail — it is the difference between an application that works and one that doesn't.</p>
-            <p>The API structure is also intentionally designed to be similar to OpenAI's, which means that if you already understand the Chat Completions pattern, transitioning to Claude requires only minor adjustments. LangChain and other orchestration frameworks support both providers through the same interface, making it easy to build applications that can swap models without rewriting business logic. Knowing both APIs makes you a more versatile and competitive developer.</p>
+            <p>For developers building AI-powered applications, treating OpenAI as the only option is a strategic mistake. Claude offers several capabilities that matter specifically in application development contexts. The most significant is the <strong>1-million-token context window</strong> on Opus 4.7 and Sonnet 4.6 — enough to process an entire codebase, a multi-hundred-page legal document, or a year's worth of transcripts in a single API call. Even GPT-4.1 (OpenAI's 2025 flagship) maxes out at 1M tokens, making this a parity feature rather than the differentiator it once was — but Claude's context handling is generally praised as more reliable at extreme lengths.</p>
+            <p>Claude's strongest differentiator for developers in 2026 is <strong>Extended Thinking</strong>: the ability to see Claude's reasoning process, set a thinking budget, and get dramatically better results on hard problems without changing your prompt structure. This is especially useful for coding, architecture decisions, and analysis tasks where you want transparency into <em>why</em> the model reached a conclusion. The API structure is also intentionally similar to OpenAI's, meaning LangChain and other frameworks support both providers through the same interface — switching is a one-line change. Knowing both APIs makes you a more versatile and competitive developer.</p>
           </div>
 
           <!-- Callout -->
           <div class="devai-callout">
-            <p class="devai-callout__label">Why the context window matters</p>
-            <p>A 200,000-token context window means Claude can process approximately 500 pages of text in a single request. This is transformative for applications involving document analysis, legal review, or code understanding. Developers building RAG (Retrieval-Augmented Generation) systems sometimes find that with Claude, they can skip the retrieval step entirely and just send the whole document — simplifying both the architecture and the code.</p>
+            <p class="devai-callout__label">Extended Thinking: Claude's reasoning mode</p>
+            <p>Enable Extended Thinking by adding <code>"thinking": {"type": "enabled", "budget_tokens": 5000}</code> to your API request. Claude will then produce a <code>thinking</code> block (its internal scratchpad) before the final response. Unlike OpenAI's o-series where reasoning is hidden, Claude's thinking is visible to you — you can log it, display it to advanced users, or use it for debugging. On tasks like multi-step code generation, math, or architectural decisions, Extended Thinking can lift quality as much as upgrading from Sonnet to Opus would.</p>
           </div>
 
           <!-- Tips -->
@@ -121,9 +121,9 @@
             <h3 class="tips-panel__title">Tips for using this resource effectively</h3>
             <ul>
               <li>Start with the <strong>Quickstart</strong> page — it provides working Python and TypeScript examples that get you to a functional API call in minutes and clearly shows the structural differences from OpenAI's API.</li>
-              <li>Read the <strong>Models overview</strong> early and bookmark it. Understanding the Haiku / Sonnet / Opus cost-performance tradeoffs is the most impactful architectural decision you make when building with Claude.</li>
-              <li>If your app sends the same system prompt or document on every request, the <strong>Prompt Caching</strong> feature can dramatically reduce your API costs. The setup is a single additional parameter — it's worth implementing from the start.</li>
-              <li>Pay attention to the <strong>context window documentation</strong> when designing your application. For apps that process documents or long conversations, Claude's 200k window may allow simpler architectures than you'd need with smaller-context models.</li>
+              <li>Read the <strong>Models overview</strong> early and bookmark it. The 2026 lineup is Haiku 4.5 ($1/$5, Adaptive Thinking), Sonnet 4.6 ($3/$15, 1M context), and Opus 4.7 ($5/$25, 1M context, highest capability). For most features, Sonnet 4.6 hits the best cost-to-capability ratio.</li>
+              <li>Try <strong>Extended Thinking</strong> on any task where you're not getting good enough results from your current model. It's often cheaper to enable Extended Thinking on Sonnet 4.6 than to upgrade to Opus 4.7, and the quality improvement is comparable.</li>
+              <li>If your app sends the same system prompt or document on every request, the <strong>Prompt Caching</strong> feature can cut those tokens' cost by up to 90%. The setup is a single additional parameter — it's worth implementing from day one.</li>
               <li>Compare the <strong>Tool Use</strong> documentation with OpenAI's function calling docs side by side. The concepts are near-identical, and seeing both implementations helps you understand the pattern more deeply than reading either one alone.</li>
             </ul>
           </aside>
@@ -145,30 +145,42 @@
 
           <!-- Code example -->
           <div class="devai-code-panel">
-            <h3 class="devai-code-panel__title">Quick Start: Messages API in Python</h3>
-            <p class="devai-code-panel__desc">The structure is very similar to OpenAI's API — the key difference is the separate <code>system</code> parameter and the response format. Install with <code>pip install anthropic</code>.</p>
+            <h3 class="devai-code-panel__title">Quick Start: Messages API + Extended Thinking (Python)</h3>
+            <p class="devai-code-panel__desc">The <code>system</code> parameter is top-level (not in <code>messages[]</code>). The second example shows <strong>Extended Thinking</strong> — Claude's visible reasoning mode. Install with <code>pip install anthropic</code>.</p>
             <div class="devai-code-block">
               <code><span class="dk">import</span> <span class="dp">anthropic</span>
 
 <span class="dc"># Initialize the client — API key from console.anthropic.com</span>
 <span class="dp">client</span> = <span class="df">anthropic.Anthropic</span>(api_key=<span class="ds">"sk-ant-..."</span>)
 
-<span class="dc"># System prompt is a top-level param, not part of messages[]</span>
+<span class="dc"># --- Standard message (Haiku 4.5 — cheapest, $1/$5 per 1M) ---</span>
 <span class="dp">message</span> = <span class="dp">client</span>.<span class="df">messages.create</span>(
-    model=<span class="ds">"claude-haiku-4-5"</span>,   <span class="dc"># cheapest / fastest model</span>
+    model=<span class="ds">"claude-haiku-4-5-20251001"</span>,
     max_tokens=<span class="dn">1024</span>,
     system=<span class="ds">"You are a helpful coding assistant."</span>,
     messages=[
         {<span class="ds">"role"</span>: <span class="ds">"user"</span>, <span class="ds">"content"</span>: <span class="ds">"Explain what an API is in two sentences."</span>}
     ]
 )
-
 <span class="dc"># Response text lives in message.content[0].text</span>
 <span class="df">print</span>(<span class="dp">message</span>.<span class="dp">content</span>[<span class="dn">0</span>].<span class="dp">text</span>)
+<span class="df">print</span>(<span class="ds">f"Tokens — in: </span><span class="dp">{message.usage.input_tokens}</span><span class="ds">, out: </span><span class="dp">{message.usage.output_tokens}</span><span class="ds">"</span>)
 
-<span class="dc"># Token usage is tracked separately for input and output</span>
-<span class="df">print</span>(<span class="ds">f"Input tokens:  </span><span class="dp">{message.usage.input_tokens}</span><span class="ds">"</span>)
-<span class="df">print</span>(<span class="ds">f"Output tokens: </span><span class="dp">{message.usage.output_tokens}</span><span class="ds">"</span>)</code>
+<span class="dc"># --- Extended Thinking (Sonnet 4.6 — reasoning visible to developer) ---</span>
+<span class="dp">thinking_msg</span> = <span class="dp">client</span>.<span class="df">messages.create</span>(
+    model=<span class="ds">"claude-sonnet-4-6"</span>,  <span class="dc"># $3/$15 per 1M — 1M context window</span>
+    max_tokens=<span class="dn">8000</span>,
+    thinking={<span class="ds">"type"</span>: <span class="ds">"enabled"</span>, <span class="ds">"budget_tokens"</span>: <span class="dn">5000</span>},
+    messages=[{
+        <span class="ds">"role"</span>: <span class="ds">"user"</span>,
+        <span class="ds">"content"</span>: <span class="ds">"Design the database schema for a multi-tenant SaaS app."</span>
+    }]
+)
+<span class="dk">for</span> <span class="dp">block</span> <span class="dk">in</span> <span class="dp">thinking_msg</span>.<span class="dp">content</span>:
+    <span class="dk">if</span> <span class="dp">block</span>.<span class="dp">type</span> == <span class="ds">"thinking"</span>:
+        <span class="df">print</span>(<span class="ds">f"[Thinking] </span><span class="dp">{block.thinking[:200]}</span><span class="ds">..."</span>)  <span class="dc"># visible reasoning</span>
+    <span class="dk">elif</span> <span class="dp">block</span>.<span class="dp">type</span> == <span class="ds">"text"</span>:
+        <span class="df">print</span>(<span class="dp">block</span>.<span class="dp">text</span>)  <span class="dc"># final answer</span></code>
             </div>
           </div>
 

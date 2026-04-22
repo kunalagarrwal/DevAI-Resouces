@@ -74,8 +74,8 @@
               <p class="devai-stat__label">English words = ~1 token</p>
             </div>
             <div class="devai-stat">
-              <p class="devai-stat__value">cl100k</p>
-              <p class="devai-stat__label">Encoding for GPT-4 / GPT-3.5</p>
+              <p class="devai-stat__value">o200k</p>
+              <p class="devai-stat__label">Encoding for GPT-4o / GPT-4.1</p>
             </div>
             <div class="devai-stat">
               <p class="devai-stat__value">Free</p>
@@ -102,8 +102,8 @@
           <div class="feature-panel">
             <h3 class="feature-panel__title">What's in it?</h3>
             <p>A <strong>token</strong> is the basic unit that language models read and generate. It is not a word, a character, or a syllable — it is a chunk of text determined by the model's vocabulary, called an encoding. Common English words are often single tokens ("the" = 1 token, "cat" = 1 token), but less common words get split across multiple tokens ("tokenization" = 3 tokens: "token", "ization", might vary). Punctuation, numbers, and code are tokenized differently from prose, often at higher token counts per character. Non-English text is typically tokenized less efficiently — a sentence in Japanese or Arabic may use 2–5× as many tokens as the equivalent English sentence of the same semantic content.</p>
-            <p>The <strong>interactive Tokenizer tool</strong> at platform.openai.com/tokenizer lets you toggle between different encodings (<code>cl100k_base</code> for GPT-4 and GPT-3.5, <code>p50k_base</code> for older GPT-3 models) and see exactly how the same text tokenizes differently across models. It's the fastest way to develop an accurate mental model of what's expensive versus cheap to send to the API.</p>
-            <p>The <strong>tiktoken library</strong> on GitHub is the programmatic equivalent. After <code>pip install tiktoken</code>, you load an encoding by name, call <code>encode()</code> on any string, and get back a list of integer token IDs. The length of that list is the token count. The README explains the API and includes ready-made examples for the most common use cases: counting tokens in a plain string, counting tokens in a full chat conversation (which includes the overhead tokens that the message format itself adds), and truncating text to fit within a given budget.</p>
+            <p>The <strong>interactive Tokenizer tool</strong> at platform.openai.com/tokenizer lets you toggle between different encodings and see exactly how the same text tokenizes differently across models. There are two encodings you'll use in practice: <code>o200k_base</code> — used by all modern models including GPT-4o, GPT-4o mini, GPT-4.1, GPT-4.1 mini, GPT-4.1 nano, o3, and o4-mini — and <code>cl100k_base</code>, used by the older GPT-4, GPT-3.5-turbo, and text-embedding-ada-002 models. If you're starting a new project in 2025 or later, you'll almost always be working with <code>o200k_base</code>. The o200k encoding has a slightly larger vocabulary (200k tokens vs 100k) and handles non-English text, code, and whitespace somewhat more efficiently.</p>
+            <p>The <strong>tiktoken library</strong> on GitHub is the programmatic equivalent. After <code>pip install tiktoken</code>, you load an encoding by name, call <code>encode()</code> on any string, and get back a list of integer token IDs. The length of that list is the token count. You can also use <code>tiktoken.encoding_for_model("gpt-4.1")</code> to automatically get the right encoding for a specific model — tiktoken maps model names to their encoding internally. The README explains the API and includes ready-made examples for the most common use cases: counting tokens in a plain string, counting tokens in a full chat conversation (which includes overhead tokens the message format adds), and truncating text to fit within a budget.</p>
           </div>
 
           <!-- How is it relevant? -->
@@ -115,8 +115,8 @@
 
           <!-- Callout -->
           <div class="devai-callout">
-            <p class="devai-callout__label">Real cost example</p>
-            <p>A GPT-4o system prompt of 500 words is roughly 650 tokens. If your chatbot sends that on every request and you get 10,000 daily users each sending 5 messages, that's 32.5 million tokens <em>just from the system prompt</em> per day — about $162/day at current pricing. Knowing this ahead of time lets you use prompt caching, choose a cheaper model for simple turns, or optimize prompt length. Tiktoken makes these calculations trivial.</p>
+            <p class="devai-callout__label">Real cost example (2025 pricing)</p>
+            <p>A GPT-4.1 system prompt of 500 words is roughly 650 tokens. If your chatbot sends that on every request and you get 10,000 daily users each sending 5 messages, that's 32.5 million tokens <em>just from the system prompt</em> per day — about $65/day at GPT-4.1 input pricing ($2/1M). Switch to GPT-4.1 mini and it drops to $13/day. Enable OpenAI's prompt caching (75% discount on cached tokens) and it falls to ~$3.25/day. Tiktoken makes these calculations trivial — use it to run the math before you deploy, not after you see the bill.</p>
           </div>
 
           <!-- Tips -->
@@ -125,7 +125,7 @@
             <ul>
               <li>Use the <strong>interactive tokenizer first</strong> — paste in your full system prompt plus a representative sample user conversation and look at the total. This one exercise gives you more practical intuition about token costs than reading any documentation.</li>
               <li>Install tiktoken at the start of any project: <code>pip install tiktoken</code>. Add a helper function that counts tokens before every API call and logs the result, even in development. You want this data from day one, not after you've already deployed.</li>
-              <li>Use <code>cl100k_base</code> encoding for GPT-4 and GPT-3.5-turbo. Using the wrong encoding gives you inaccurate counts — the difference matters when you're close to a context window limit.</li>
+              <li>Use <code>o200k_base</code> for all modern OpenAI models (GPT-4o, GPT-4.1, o3, o4-mini). Use <code>cl100k_base</code> only for older models (GPT-4, GPT-3.5-turbo, text-embedding-ada-002). When in doubt, call <code>tiktoken.encoding_for_model(your_model_name)</code> and let tiktoken pick the right one automatically.</li>
               <li>For chat conversations, the token count isn't just the sum of all message strings — the chat format itself adds a small overhead per message. The <strong>OpenAI Cookbook on GitHub</strong> has a ready-made function (<code>num_tokens_from_messages()</code>) that handles this correctly; use it rather than writing your own naive counter.</li>
               <li>Implement a <strong>message trimming strategy</strong> early. A common approach is to remove the oldest user/assistant turns until the count is under a safe threshold before each API call. Tiktoken makes it easy to check the count after each trim step.</li>
             </ul>
@@ -154,7 +154,8 @@
               <code><span class="dk">import</span> <span class="dp">tiktoken</span>
 
 <span class="dc"># --- Basic token counting ---</span>
-<span class="dp">enc</span> = <span class="dp">tiktoken</span>.<span class="df">get_encoding</span>(<span class="ds">"cl100k_base"</span>)  <span class="dc"># for GPT-4 and GPT-3.5</span>
+<span class="dp">enc</span> = <span class="dp">tiktoken</span>.<span class="df">get_encoding</span>(<span class="ds">"o200k_base"</span>)  <span class="dc"># GPT-4o, GPT-4.1, o3, o4-mini</span>
+<span class="dc"># Use cl100k_base only for older models: GPT-4, GPT-3.5-turbo, ada-002</span>
 
 <span class="dp">text</span> = <span class="ds">"Hello! How many tokens does this sentence use?"</span>
 <span class="dp">tokens</span> = <span class="dp">enc</span>.<span class="df">encode</span>(<span class="dp">text</span>)
@@ -162,7 +163,7 @@
 <span class="df">print</span>(<span class="ds">f"Token IDs:   </span><span class="dp">{tokens}</span><span class="ds">"</span>)
 
 <span class="dc"># --- Count tokens for a full chat conversation (incl. overhead) ---</span>
-<span class="dk">def</span> <span class="df">count_chat_tokens</span>(<span class="dp">messages</span>, <span class="dp">model</span>=<span class="ds">"gpt-4o"</span>):
+<span class="dk">def</span> <span class="df">count_chat_tokens</span>(<span class="dp">messages</span>, <span class="dp">model</span>=<span class="ds">"gpt-4.1"</span>):
     <span class="ds">"""Returns total token count for a messages[] array."""</span>
     <span class="dp">enc</span> = <span class="dp">tiktoken</span>.<span class="df">encoding_for_model</span>(<span class="dp">model</span>)
     <span class="dp">tokens_per_message</span> = <span class="dn">3</span>  <span class="dc"># every message adds ~3 tokens of overhead</span>

@@ -63,15 +63,15 @@
           <p class="resource-lede__url">URL: <a href="https://python.langchain.com/docs" target="_blank">https://python.langchain.com/docs</a></p>
           <div class="devai-stats">
             <div class="devai-stat">
-              <p class="devai-stat__value">LCEL</p>
-              <p class="devai-stat__label">LangChain Expression Language</p>
+              <p class="devai-stat__value">v1.0</p>
+              <p class="devai-stat__label">Stable release (Oct 2025)</p>
             </div>
             <div class="devai-stat">
-              <p class="devai-stat__value">RAG</p>
-              <p class="devai-stat__label">Built-in support</p>
+              <p class="devai-stat__value">LangGraph</p>
+              <p class="devai-stat__label">Production agent framework</p>
             </div>
             <div class="devai-stat">
-              <p class="devai-stat__value">10+</p>
+              <p class="devai-stat__value">50+</p>
               <p class="devai-stat__label">LLM providers supported</p>
             </div>
             <div class="devai-stat">
@@ -91,16 +91,16 @@
           <!-- What is this resource? -->
           <div class="feature-panel">
             <h3 class="feature-panel__title">What is this resource?</h3>
-            <p>LangChain is an open-source framework designed to make building applications with large language models faster, more modular, and more maintainable. Instead of writing raw API calls and manually managing prompts, conversation history, external data retrieval, and tool orchestration, LangChain provides a composable set of components for each of these concerns — components that can be connected together using the <strong>LangChain Expression Language (LCEL)</strong>, a pipe-based syntax inspired by Unix shell commands. The official documentation at python.langchain.com is the primary reference for the Python version of the library, which is the most widely used.</p>
-            <p>LangChain matters because almost every production AI application needs features that go beyond a single API call: persistent conversation memory, the ability to query a database or search the web, structured output parsing, and routing logic that decides which model or tool to use based on the input. Building these features from scratch with raw API calls is tedious and error-prone. LangChain provides tested, reusable implementations of all of them, backed by extensive documentation and a large community of active contributors.</p>
+            <p>LangChain is an open-source framework designed to make building applications with large language models faster, more modular, and more maintainable. In October 2025, the team released <strong>LangChain v1.0</strong> and <strong>LangGraph v1.0</strong> simultaneously — signaling production stability after years of rapid iteration. LangChain handles the component layer (prompt templates, model integrations, output parsers, retrievers), while <strong>LangGraph</strong> handles the orchestration layer for stateful, multi-step agent workflows. As of April 2026, LangGraph is at version 1.1.8 and is the recommended way to build production agents — the older "Agents" abstraction in LangChain itself now delegates to LangGraph under the hood.</p>
+            <p>LangChain matters because almost every production AI application needs features that go beyond a single API call: persistent conversation memory, the ability to query a database or search the web, structured output parsing, and routing logic that decides which model or tool to use based on the input. Building these from scratch with raw API calls is tedious and error-prone. LangChain provides tested, reusable implementations of all of them, backed by extensive documentation and a large community. The ecosystem also includes <strong>LangSmith</strong> — a hosted observability platform for logging, tracing, and evaluating LLM calls in production — which integrates directly with both LangChain and LangGraph.</p>
           </div>
 
           <!-- What's in it? -->
           <div class="feature-panel">
             <h3 class="feature-panel__title">What's in it?</h3>
-            <p>The documentation is organized around LangChain's core abstractions. <strong>Chat Models</strong> provides a unified interface to over a dozen LLM providers — OpenAI, Anthropic, Hugging Face, Google, Mistral, and more — through the same Python class structure. Switching providers is a one-line change, which means your application logic stays provider-agnostic. <strong>Prompt Templates</strong> allows you to define prompts with variable placeholders that get filled at runtime, making prompts reusable, testable, and easy to version-control.</p>
-            <p><strong>Chains and LCEL</strong> is where LangChain's power shows most clearly. Using the pipe operator (<code>|</code>), you can compose a prompt template, a model, and an output parser into a single executable chain with one line: <code>chain = prompt | llm | parser</code>. This is the core pattern used throughout modern LangChain code. <strong>Memory</strong> covers how to persist and retrieve conversation history across turns, including different storage backends (in-memory, Redis, PostgreSQL). <strong>Agents</strong> explain how to give a model access to tools — web search, code execution, database queries — and let it decide which tool to use autonomously.</p>
-            <p>The <strong>Retrieval-Augmented Generation (RAG)</strong> section is one of the most practically valuable parts of the documentation. RAG is the architectural pattern behind "chat with your documents" applications: you embed a document into vector representations, store them in a vector database (like Chroma, Pinecone, or FAISS), and at query time retrieve the most relevant chunks to include in the prompt. LangChain has built-in support for dozens of document loaders (PDF, HTML, CSV, code files), text splitters, embedding models, and vector stores.</p>
+            <p>The documentation is organized around LangChain's core abstractions. <strong>Chat Models</strong> provides a unified interface to 50+ LLM providers — OpenAI, Anthropic, Hugging Face, Google, Mistral, and more — through the same Python class structure. Switching providers is a one-line change, meaning your application logic stays provider-agnostic. <strong>Prompt Templates</strong> allows you to define prompts with variable placeholders that get filled at runtime, making prompts reusable, testable, and easy to version-control.</p>
+            <p><strong>Chains and LCEL</strong> is where LangChain's power shows most clearly. Using the pipe operator (<code>|</code>), you compose a prompt, model, and parser into a single executable chain: <code>chain = prompt | llm | parser</code>. This is the core pattern for simple, linear workflows. For anything more complex — loops, branching, tool use, human-in-the-loop — you use <strong>LangGraph</strong>. LangGraph models workflows as a directed graph where each node is a function and edges are conditional. It has native support for <strong>node caching</strong> (skip re-running expensive nodes if inputs haven't changed), <strong>deferred nodes</strong> (run in background while others proceed), and <strong>pre/post hooks</strong> for observability. Agents in LangChain are now built on LangGraph internally.</p>
+            <p>The <strong>Retrieval-Augmented Generation (RAG)</strong> section is one of the most practically valuable parts of the documentation. RAG is the architecture behind "chat with your documents" applications: embed a document into vector representations, store in a vector database (Chroma, Pinecone, FAISS), and retrieve relevant chunks at query time to include in the prompt. LangChain has built-in support for dozens of document loaders (PDF, HTML, CSV, code files), text splitters, embedding models, and vector stores. <strong>LangSmith</strong> is the companion observability tool — it logs every LLM call, input, output, and latency in your LangChain app, making it far easier to debug and improve prompts in production than reading raw API logs.</p>
           </div>
 
           <!-- How is it relevant? -->
@@ -112,8 +112,8 @@
 
           <!-- Callout -->
           <div class="devai-callout">
-            <p class="devai-callout__label">The LCEL pattern</p>
-            <p>The core LCEL pattern — <code>chain = prompt | model | output_parser</code> — composes AI application logic the same way Unix pipes compose commands. Each component takes an input and produces an output, and the <code>|</code> operator connects them. This composability is what makes LangChain-based code easy to read, test, and swap components in and out of. Once you internalize this pattern, you can reason about complex AI pipelines at a glance.</p>
+            <p class="devai-callout__label">When to use LangChain vs LangGraph</p>
+            <p>A good rule of thumb as of 2025–2026: use <strong>LangChain (LCEL)</strong> for simple, linear pipelines — a single prompt, an RAG lookup, a quick tool call. Use <strong>LangGraph</strong> for anything with state, loops, or branching — multi-step agents, workflows where you need to retry on failure, or applications where different paths run based on model output. LangGraph is production-hardened and the standard choice for agents; LangChain's older "Agent" abstraction wraps LangGraph now anyway. For observability on either, wire in LangSmith from day one.</p>
           </div>
 
           <!-- Tips -->
@@ -123,7 +123,7 @@
               <li>Start with the <strong>Introduction and Quickstart</strong> pages to build a mental model of how LangChain's components fit together. Trying to use agents or RAG before understanding the basic LCEL chain pattern is a common mistake that leads to confusion.</li>
               <li>LangChain's documentation is large and can feel overwhelming. Focus on one concept at a time — get a basic LCEL chain working, then add memory, then try RAG. Don't try to learn everything at once.</li>
               <li>The <strong>How-to guides</strong> section (separate from the conceptual docs) is where you should go when you have a specific task in mind. It's organized by problem ("How to add memory to a chatbot") rather than by component, which is more useful when you're actually building something.</li>
-              <li>LangChain updates frequently and has had significant breaking changes between major versions. Always check the version number in the docs against what you have installed, and use version-pinned requirements files in your project to prevent surprises.</li>
+              <li>LangChain v1.0 (October 2025) established a stable API — breaking changes are now much rarer. However, always version-pin in your <code>requirements.txt</code> and be aware that <strong>LangGraph</strong> (currently at v1.1.8) releases independently and more frequently than LangChain itself.</li>
               <li>If you're building a RAG application, the <strong>"Q&amp;A over documents"</strong> tutorial in the How-to section is the best starting point — it walks through the full pipeline end to end with working code, covering document loading, splitting, embedding, storing, and retrieval.</li>
             </ul>
           </aside>

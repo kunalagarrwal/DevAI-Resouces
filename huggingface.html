@@ -63,11 +63,11 @@
           <p class="resource-lede__url">URL: <a href="https://huggingface.co" target="_blank">https://huggingface.co</a></p>
           <div class="devai-stats">
             <div class="devai-stat">
-              <p class="devai-stat__value">500k+</p>
-              <p class="devai-stat__label">Models available</p>
+              <p class="devai-stat__value">2M+</p>
+              <p class="devai-stat__label">Models available (2025)</p>
             </div>
             <div class="devai-stat">
-              <p class="devai-stat__value">100k+</p>
+              <p class="devai-stat__value">200k+</p>
               <p class="devai-stat__label">Public datasets</p>
             </div>
             <div class="devai-stat">
@@ -75,8 +75,8 @@
               <p class="devai-stat__label">Model downloads</p>
             </div>
             <div class="devai-stat">
-              <p class="devai-stat__value">Python</p>
-              <p class="devai-stat__label">Primary interface</p>
+              <p class="devai-stat__value">SOC 2</p>
+              <p class="devai-stat__label">Enterprise certified (2025)</p>
             </div>
           </div>
         </div>
@@ -91,15 +91,15 @@
           <!-- What is this resource? -->
           <div class="feature-panel">
             <h3 class="feature-panel__title">What is this resource?</h3>
-            <p>Hugging Face is the largest open-source AI platform on the web, functioning simultaneously as a model repository, a dataset library, a community forum, and a hosting platform for live AI demos. It hosts over 500,000 pre-trained models contributed by research institutions, major technology companies (Meta, Google, Microsoft, Mistral), and independent developers — all available for free download. For developers who want to integrate AI capabilities without relying entirely on a paid third-party API, Hugging Face is the essential starting point.</p>
-            <p>What distinguishes Hugging Face from other AI resources in this guide is its scope: it covers the full breadth of AI tasks beyond just text generation. Models on the platform handle text, images, audio, video, code, protein sequences, and more. For a developer building a production application, Hugging Face is where you go to find the right specialized model for your specific task — whether that's multilingual text classification, speech recognition, document image analysis, or a domain-specific text generator trained on medical or legal data.</p>
+            <p>Hugging Face is the largest open-source AI platform on the web, functioning simultaneously as a model repository, a dataset library, a community forum, and a hosting platform for live AI demos. As of 2025, it hosts over <strong>2 million pre-trained models</strong> contributed by research institutions, major technology companies (Meta, Google, Microsoft, Mistral, DeepSeek, Moonshot AI), and independent developers — all available for free download. In September 2025, Hugging Face integrated directly into <strong>GitHub Copilot</strong>, letting developers search and deploy Hub models without leaving VS Code. The platform also achieved <strong>SOC 2 Type II certification</strong> in 2025, making it enterprise-grade for organizations with compliance requirements.</p>
+            <p>What distinguishes Hugging Face from other AI resources in this guide is its scope: it covers the full breadth of AI tasks beyond just text generation. Models on the platform handle text, images, audio, video, code, protein sequences, and more. For a developer building a production application, Hugging Face is where you go to find the right specialized model for your specific task — whether that's multilingual text classification, speech recognition, document image analysis, or a domain-specific text generator trained on medical or legal data. The 2025 open-source model landscape has become extremely competitive: <strong>DeepSeek V3.1</strong>, <strong>Kimi K2</strong>, and <strong>GLM 4.5</strong> are all available on the Hub and benchmark near or above closed commercial models on many tasks.</p>
           </div>
 
           <!-- What's in it? -->
           <div class="feature-panel">
             <h3 class="feature-panel__title">What's in it?</h3>
-            <p>The platform has four main components that developers interact with. The <strong>Model Hub</strong> is a searchable library of pre-trained models filterable by task, programming language, license type, and dataset. Each model has a dedicated <em>model card</em> — a structured documentation page explaining what the model was trained on, its intended use cases, known limitations, and example code showing how to load and run it. Reading the model card before downloading anything is critical: it tells you whether the model actually does what you need, under what license, and with what computational requirements.</p>
-            <p>The <strong>Datasets Hub</strong> provides access to tens of thousands of publicly available training and evaluation datasets in a standardized format. The <strong>Spaces</strong> section hosts live interactive demos of models that you can try in the browser, built by the community using Gradio or Streamlit — this is the fastest way to test a model's behavior before integrating it. The <strong>Transformers library</strong> (installable via <code>pip install transformers</code>) is Hugging Face's flagship open-source Python library, providing a unified <code>pipeline()</code> interface that loads and runs any task-specific model with a single function call. For developers who want to call models without downloading them, the free-tier <strong>Inference API</strong> allows HTTP requests to most models on the hub.</p>
+            <p>The platform has five main components that developers interact with. The <strong>Model Hub</strong> is a searchable library of 2M+ pre-trained models filterable by task, programming language, license type, and dataset. Each model has a dedicated <em>model card</em> — a structured documentation page explaining what the model was trained on, its intended use cases, known limitations, and example code showing how to load and run it. Reading the model card before downloading anything is critical: it tells you whether the model actually does what you need, under what license, and with what computational requirements.</p>
+            <p>The <strong>Datasets Hub</strong> provides access to hundreds of thousands of publicly available training and evaluation datasets in a standardized format. The <strong>Spaces</strong> section hosts live interactive demos built with Gradio or Streamlit — the fastest way to test a model's behavior before committing to integration. The <strong>Transformers library</strong> (<code>pip install transformers</code>) is Hugging Face's flagship Python library, providing a unified <code>pipeline()</code> interface. For serverless model calls, the <strong>Inference Providers API</strong> (updated 2025) connects the Hub to 10+ cloud providers including AWS, Azure, Google Cloud, Together AI, and Replicate — same HTTP interface as OpenAI, different backend. You pick the cheapest provider for your model with one parameter change. For production deployment, <strong>Text Generation Inference (TGI)</strong> and <strong>vLLM</strong> are the standard serving stacks, both supported natively on the Hub.</p>
           </div>
 
           <!-- How is it relevant? -->
@@ -119,13 +119,12 @@
           <aside class="tips-panel">
             <h3 class="tips-panel__title">Tips for using this resource effectively</h3>
             <ul>
-              <li>Use the <strong>task filter</strong> on the Model Hub as your primary navigation tool — searching by task type (e.g., "text-generation", "question-answering", "zero-shot-classification") will give you far better results than browsing by model name, most of which are technical identifiers that mean nothing until you've read the model card.</li>
-              <li>Always read the <strong>model card</strong> before downloading. It tells you the model's purpose, performance benchmarks, license restrictions, and exact code to load it. Skipping the model card and going straight to <code>pip install</code> is how you end up with a model that does something completely different from what you needed.</li>
-              <li>Use <strong>Spaces demos</strong> to test model behavior in the browser before writing any code. If a model doesn't perform well on your actual inputs when you test it in the browser, it won't perform better in your application.</li>
-              <li>Pay attention to the <strong>license field</strong> when selecting models for anything you plan to deploy or distribute. Many models use permissive licenses (MIT, Apache 2.0) but some have non-commercial or research-only restrictions. The license filter in the Model Hub search makes this easy to check.</li>
-              <li>The <strong>Inference API</strong> (free tier available) is a good middle ground for development and testing — it lets you call models via HTTP without downloading weights, and the request format is nearly identical to what you'd use with any REST API.</li>
-            </ul>
-          </aside>
+              <li>Start with the <strong>Inference Providers API</strong> before downloading anything. It lets you test any model via HTTP request &#x2014; same pattern as OpenAI &#x2014; so you can evaluate models quickly without local GPU requirements or infrastructure setup.</li>
+              <li>When choosing an open model to self-host, filter by the <strong>Open LLM Leaderboard</strong> (linked from the Hub) and compare benchmark scores. Don&#x2019;t default to LLaMA just because it&#x2019;s well-known &#x2014; <strong>DeepSeek V3.1</strong> and <strong>Mistral</strong> frequently outperform it on coding and reasoning tasks.</li>
+              <li>Use the <strong>pipeline</strong> abstraction from Transformers for local inference. It&#x2019;s two lines to get a working model and handles all the tokenization complexity for you. Only drop down to the lower-level <code>AutoModel</code> API when you need custom behavior the pipeline doesn&#x2019;t support.</li>
+              <li>If you&#x2019;re building RAG (retrieval-augmented generation), Hugging Face has the best selection of <strong>embedding models</strong>. The <code>sentence-transformers</code> library (also on the Hub) is the standard tool for generating embeddings, and many models are free to use locally without any API calls.</li>
+              <li>For fine-tuning, use <strong>LoRA / QLoRA</strong> (via the <code>peft</code> library on Hugging Face) rather than full fine-tuning. It achieves comparable results at a fraction of the compute cost and can be run on a single consumer GPU.</li>
+            </ul></aside>
 
           <!-- Video embed -->
           <div class="devai-video-panel">
