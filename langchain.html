@@ -159,7 +159,7 @@
 ])
 
 <span class="dc"># 2. Initialize the model</span>
-<span class="dp">llm</span> = <span class="df">ChatOpenAI</span>(model=<span class="ds">"gpt-4o-mini"</span>, temperature=<span class="dn">0</span>)
+<span class="dp">llm</span> = <span class="df">ChatOpenAI</span>(model=<span class="ds">"gpt-5.4-mini"</span>, temperature=<span class="dn">0</span>)
 
 <span class="dc"># 3. Compose the chain with LCEL pipe syntax</span>
 <span class="dp">chain</span> = <span class="dp">prompt</span> | <span class="dp">llm</span> | <span class="df">StrOutputParser</span>()
