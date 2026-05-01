@@ -15,12 +15,12 @@
       <nav class="devai-nav" aria-label="Primary">
         <ul class="devai-nav__list">
           <li><a href="index.html" class="devai-nav__link">Home</a></li>
+          <li><a href="prompting-guide.html" class="devai-nav__link">Prompting Guide</a></li>
           <li><a href="openai-docs.html" class="devai-nav__link">OpenAI Docs</a></li>
           <li><a href="anthropic.html" class="devai-nav__link">Anthropic</a></li>
           <li><a href="huggingface.html" class="devai-nav__link">Hugging Face</a></li>
           <li><a href="tokenizer.html" class="devai-nav__link">Tokenizer</a></li>
           <li><a href="langchain.html" class="devai-nav__link is-current">LangChain</a></li>
-          <li><a href="prompting-guide.html" class="devai-nav__link">Prompting Guide</a></li>
         </ul>
         <div class="devai-search" id="devaiSearch">
           <button class="devai-search__btn" id="devaiSearchToggle" aria-label="Search" aria-expanded="false">
@@ -90,8 +90,8 @@
 
           <!-- What is this resource? -->
           <div class="feature-panel">
-            <h3 class="feature-panel__title">What is this resource?</h3>
-            <p>LangChain is an open-source framework designed to make building applications with large language models faster, more modular, and more maintainable. In October 2025, the team released <strong>LangChain v1.0</strong> and <strong>LangGraph v1.0</strong> simultaneously — signaling production stability after years of rapid iteration. LangChain handles the component layer (prompt templates, model integrations, output parsers, retrievers), while <strong>LangGraph</strong> handles the orchestration layer for stateful, multi-step agent workflows. As of April 2026, LangGraph is at version 1.1.8 and is the recommended way to build production agents — the older "Agents" abstraction in LangChain itself now delegates to LangGraph under the hood.</p>
+            <h3 class="feature-panel__title">Overview</h3>
+            <p><a href="https://python.langchain.com/docs" target="_blank">LangChain</a> is an open-source framework designed to make building applications with large language models faster, more modular, and more maintainable. In October 2025, the team released <strong>LangChain v1.0</strong> and <strong>LangGraph v1.0</strong> simultaneously — signaling production stability after years of rapid iteration. LangChain handles the component layer (prompt templates, model integrations, output parsers, retrievers), while <strong>LangGraph</strong> handles the orchestration layer for stateful, multi-step agent workflows. As of April 2026, LangGraph is at version 1.1.8 and is the recommended way to build production agents — the older "Agents" abstraction in LangChain itself now delegates to LangGraph under the hood.</p>
             <p>LangChain matters because almost every production AI application needs features that go beyond a single API call: persistent conversation memory, the ability to query a database or search the web, structured output parsing, and routing logic that decides which model or tool to use based on the input. Building these from scratch with raw API calls is tedious and error-prone. LangChain provides tested, reusable implementations of all of them, backed by extensive documentation and a large community. The ecosystem also includes <strong>LangSmith</strong> — a hosted observability platform for logging, tracing, and evaluating LLM calls in production — which integrates directly with both LangChain and LangGraph.</p>
           </div>
 
@@ -105,7 +105,7 @@
 
           <!-- How is it relevant? -->
           <div class="feature-panel">
-            <h3 class="feature-panel__title">How is it relevant to your purpose?</h3>
+            <h3 class="feature-panel__title">Relevance to Your Audience</h3>
             <p>Once you're comfortable making basic API calls to an LLM, LangChain becomes the natural next step for building anything more complex. Consider a common scenario: you're building a chatbot that needs to answer questions based on a PDF document the user uploads, remember context across a multi-turn conversation, and occasionally look up current information from the web. Implementing all of that from scratch with raw API calls requires hundreds of lines of custom code and careful handling of edge cases. With LangChain, each of those features is a few lines using built-in components.</p>
             <p>LangChain also has significant professional relevance. It's one of the most popular AI frameworks in the industry, appearing frequently in job descriptions for AI engineering and product development roles. Knowing the framework — not just the raw APIs it wraps — demonstrates a level of applied AI engineering sophistication that matters when presenting projects to employers or in interviews. Even if you ultimately build production applications on raw API calls for performance reasons, understanding how LangChain works gives you a clear mental model for the architecture of AI applications.</p>
           </div>
@@ -186,8 +186,8 @@
   <section class="band band--tint">
     <div class="layout-constrain">
       <div class="resource-nav">
-        <a href="tokenizer.html" class="resource-nav__btn resource-nav__btn--prev"><span class="resource-nav__label">&#8592; Previous</span><span class="resource-nav__title">OpenAI Tokenizer & Tiktoken</span></a>
-        <a href="prompting-guide.html" class="resource-nav__btn resource-nav__btn--next"><span class="resource-nav__label">Next &#8594;</span><span class="resource-nav__title">Prompt Engineering Guide</span></a>
+        <a href="tokenizer.html" class="resource-nav__btn resource-nav__btn--prev"><span class="resource-nav__label">&#8592; Previous</span><span class="resource-nav__title">OpenAI Tokenizer &amp; Tiktoken</span></a>
+        <a href="index.html" class="resource-nav__btn resource-nav__btn--next"><span class="resource-nav__label">Next &#8594;</span><span class="resource-nav__title">Back to All Resources</span></a>
       </div>
     </div>
   </section>

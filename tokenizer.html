@@ -15,12 +15,12 @@
       <nav class="devai-nav" aria-label="Primary">
         <ul class="devai-nav__list">
           <li><a href="index.html" class="devai-nav__link">Home</a></li>
+          <li><a href="prompting-guide.html" class="devai-nav__link">Prompting Guide</a></li>
           <li><a href="openai-docs.html" class="devai-nav__link">OpenAI Docs</a></li>
           <li><a href="anthropic.html" class="devai-nav__link">Anthropic</a></li>
           <li><a href="huggingface.html" class="devai-nav__link">Hugging Face</a></li>
           <li><a href="tokenizer.html" class="devai-nav__link is-current">Tokenizer</a></li>
           <li><a href="langchain.html" class="devai-nav__link">LangChain</a></li>
-          <li><a href="prompting-guide.html" class="devai-nav__link">Prompting Guide</a></li>
         </ul>
         <div class="devai-search" id="devaiSearch">
           <button class="devai-search__btn" id="devaiSearchToggle" aria-label="Search" aria-expanded="false">
@@ -93,8 +93,8 @@
 
           <!-- What is this resource? -->
           <div class="feature-panel">
-            <h3 class="feature-panel__title">What is this resource?</h3>
-            <p>This entry covers two closely related tools that address one of the most commonly misunderstood fundamentals of building with LLM APIs: token management. The first is the <strong>OpenAI Tokenizer</strong>, an interactive web tool where you can paste any text and instantly see how the model breaks it into tokens — displayed with color-coded highlighting, a total token count, and the numerical token IDs. The second is <strong>tiktoken</strong>, an open-source Python library from OpenAI that performs the same tokenization programmatically, letting you count tokens in your code before making an API call.</p>
+            <h3 class="feature-panel__title">Overview</h3>
+            <p>The <a href="https://platform.openai.com/tokenizer" target="_blank">OpenAI Tokenizer</a> and <a href="https://github.com/openai/tiktoken" target="_blank">tiktoken library</a> are two closely related tools that address one of the most commonly misunderstood fundamentals of building with LLM APIs: token management. The <strong>OpenAI Tokenizer</strong> is an interactive web tool where you can paste any text and instantly see how the model breaks it into tokens — displayed with color-coded highlighting, a total token count, and the numerical token IDs. <strong>tiktoken</strong> is the programmatic equivalent: an open-source Python library from OpenAI that performs the same tokenization in code, letting you count tokens before every API call.</p>
             <p>Understanding tokens is not optional for anyone building applications on top of LLM APIs. Every API provider charges by the token, enforces context window limits measured in tokens, and structures its responses around token usage. Without understanding what a token is and how your text maps to tokens, you cannot accurately predict costs, prevent context window overflow errors, or implement efficient conversation history management. These two tools — the visual tokenizer for building intuition and tiktoken for programmatic control — are the practical solution to those problems.</p>
           </div>
 
@@ -108,7 +108,7 @@
 
           <!-- How is it relevant? -->
           <div class="feature-panel">
-            <h3 class="feature-panel__title">How is it relevant to your purpose?</h3>
+            <h3 class="feature-panel__title">Relevance to Your Audience</h3>
             <p>Token management is the first thing that surprises developers who are new to building with LLM APIs. Most people intuitively expect to be charged per message or per word, but APIs charge by token, and the token count for a single request includes far more than just the user's most recent input. It includes the entire conversation history, the system prompt, and the model's response. In a chatbot with 20 back-and-forth turns, by the 20th turn you might be sending 5,000+ tokens per request even if each individual message is short — because all 19 previous turns are re-sent as context.</p>
             <p>Without a token counter, this accumulation is invisible until you see an unexpectedly high API bill or — worse — get a <code>context_length_exceeded</code> error at runtime because the conversation grew longer than the model's context window allows. Tiktoken gives you the ability to check token counts before every API call, implement a sliding window that trims the oldest messages when the count gets too high, and log token usage per request so you can profile and optimize your application. For a developer building any kind of conversational AI feature, these aren't optional optimizations — they're architectural necessities.</p>
           </div>

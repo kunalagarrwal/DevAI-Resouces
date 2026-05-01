@@ -15,12 +15,12 @@
       <nav class="devai-nav" aria-label="Primary">
         <ul class="devai-nav__list">
           <li><a href="index.html" class="devai-nav__link">Home</a></li>
+          <li><a href="prompting-guide.html" class="devai-nav__link">Prompting Guide</a></li>
           <li><a href="openai-docs.html" class="devai-nav__link is-current">OpenAI Docs</a></li>
           <li><a href="anthropic.html" class="devai-nav__link">Anthropic</a></li>
           <li><a href="huggingface.html" class="devai-nav__link">Hugging Face</a></li>
           <li><a href="tokenizer.html" class="devai-nav__link">Tokenizer</a></li>
           <li><a href="langchain.html" class="devai-nav__link">LangChain</a></li>
-          <li><a href="prompting-guide.html" class="devai-nav__link">Prompting Guide</a></li>
         </ul>
         <div class="devai-search" id="devaiSearch">
           <button class="devai-search__btn" id="devaiSearchToggle" aria-label="Search" aria-expanded="false">
@@ -90,8 +90,8 @@
 
           <!-- What is this resource? -->
           <div class="feature-panel">
-            <h3 class="feature-panel__title">What is this resource?</h3>
-            <p>The OpenAI Platform Documentation is the official, comprehensive technical reference maintained by OpenAI for developers building AI-powered applications. It covers the complete lifecycle of working with OpenAI's API — from generating your first API key and making your first request, all the way to deploying production-grade features using their most advanced models. As of 2026, the flagship model family is <strong>GPT-5.4</strong> (released March 2026), which comes in four tiers: GPT-5.4 ($2.50/$15 per 1M input/output tokens), GPT-5.4 mini ($0.75/$4.50), GPT-5.4 nano ($0.20/$1.25), and GPT-5.4 Pro ($30/$180 for maximum capability). All tiers support a <strong>1.05M-token context window</strong> and benefit from 50% cached input discounts. For complex reasoning tasks, OpenAI also offers reasoning-focused models that internally chain their thinking before responding. If you are integrating AI into any kind of software project, this documentation is the single most important reference you will return to repeatedly.</p>
+            <h3 class="feature-panel__title">Overview</h3>
+            <p>The <a href="https://platform.openai.com/docs" target="_blank">OpenAI Platform Documentation</a> is the official, comprehensive technical reference maintained by OpenAI for developers building AI-powered applications. It covers the complete lifecycle of working with OpenAI's API — from generating your first API key and making your first request, all the way to deploying production-grade features using their most advanced models. As of 2026, the flagship model family is <strong>GPT-5.4</strong> (released March 2026), which comes in four tiers: GPT-5.4 ($2.50/$15 per 1M input/output tokens), GPT-5.4 mini ($0.75/$4.50), GPT-5.4 nano ($0.20/$1.25), and GPT-5.4 Pro ($30/$180 for maximum capability). All tiers support a <strong>1.05M-token context window</strong> and benefit from 50% cached input discounts. For complex reasoning tasks, OpenAI also offers reasoning-focused models that internally chain their thinking before responding. If you are integrating AI into any kind of software project, this documentation is the single most important reference you will return to repeatedly.</p>
             <p>What makes this documentation particularly valuable is that it is written specifically for developers, not end users. It assumes you know how to write code and focuses on the mechanics of the API: how requests are structured, what parameters control model behavior, how responses are formatted, and how to handle errors. It is precise, well-organized, and regularly updated to reflect new models and features as OpenAI releases them. OpenAI introduced the <strong>Responses API</strong> as a successor to Chat Completions for agentic workflows — it natively supports web search, file reading, and computer use tools without external orchestration.</p>
           </div>
 
@@ -105,7 +105,7 @@
 
           <!-- How is it relevant? -->
           <div class="feature-panel">
-            <h3 class="feature-panel__title">How is it relevant to your purpose?</h3>
+            <h3 class="feature-panel__title">Relevance to Your Audience</h3>
             <p>If you are building any kind of AI-powered feature — a chatbot, an intelligent search tool, a code assistant, or a document summarizer — you will almost certainly use the OpenAI API as your starting point. This documentation is where you will find everything you need to make it work correctly and efficiently. For a developer building something like a study app with AI-generated flashcards, a customer support bot, or a writing assistant, the Chat Completions endpoint is the core building block and this documentation explains it better than any third-party tutorial. The GPT-5.4 family gives you a clear tiered choice: use <strong>nano</strong> for high-volume simple tasks ($0.20/1M tokens), <strong>mini</strong> for general use ($0.75/1M), <strong>GPT-5.4</strong> for production-quality work ($2.50/1M), and <strong>GPT-5.4 Pro</strong> for maximum capability on the hardest tasks ($30/1M).</p>
             <p>Understanding the API mechanics covered here has real financial stakes: every API call costs money based on token count, and a badly structured application can easily burn through a monthly budget in a day. The docs explain exactly how tokens are counted, how conversation history accumulates costs across turns, and what strategies (like truncating old messages, using the Batch API for async work at 50% off, or enabling prompt caching) prevent runaway spending. <strong>Cached input tokens on GPT-5.4 are discounted by 50%</strong> — if your app sends the same large system prompt or document on every request, this alone can cut API costs dramatically. For a developer moving from prototype to real users, this knowledge is not optional — it directly affects whether your application is economically viable.</p>
           </div>
@@ -205,7 +205,7 @@
   <section class="band band--tint">
     <div class="layout-constrain">
       <div class="resource-nav">
-        <span class="resource-nav__spacer"></span>
+        <a href="prompting-guide.html" class="resource-nav__btn resource-nav__btn--prev"><span class="resource-nav__label">&#8592; Previous</span><span class="resource-nav__title">Prompt Engineering Guide</span></a>
         <a href="anthropic.html" class="resource-nav__btn resource-nav__btn--next"><span class="resource-nav__label">Next &#8594;</span><span class="resource-nav__title">Anthropic API Documentation</span></a>
       </div>
     </div>

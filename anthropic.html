@@ -15,12 +15,12 @@
       <nav class="devai-nav" aria-label="Primary">
         <ul class="devai-nav__list">
           <li><a href="index.html" class="devai-nav__link">Home</a></li>
+          <li><a href="prompting-guide.html" class="devai-nav__link">Prompting Guide</a></li>
           <li><a href="openai-docs.html" class="devai-nav__link">OpenAI Docs</a></li>
           <li><a href="anthropic.html" class="devai-nav__link is-current">Anthropic</a></li>
           <li><a href="huggingface.html" class="devai-nav__link">Hugging Face</a></li>
           <li><a href="tokenizer.html" class="devai-nav__link">Tokenizer</a></li>
           <li><a href="langchain.html" class="devai-nav__link">LangChain</a></li>
-          <li><a href="prompting-guide.html" class="devai-nav__link">Prompting Guide</a></li>
         </ul>
         <div class="devai-search" id="devaiSearch">
           <button class="devai-search__btn" id="devaiSearchToggle" aria-label="Search" aria-expanded="false">
@@ -90,8 +90,8 @@
 
           <!-- What is this resource? -->
           <div class="feature-panel">
-            <h3 class="feature-panel__title">What is this resource?</h3>
-            <p>The Anthropic API Documentation is the official developer reference for Claude, the large language model family built by Anthropic. It is a complete technical guide covering everything required to integrate Claude into a software application — from API authentication and your first message request, to advanced features like tool use, vision processing, Extended Thinking, and prompt caching for cost optimization. As of April 2026, the current model lineup is <strong>Claude Opus 4.7</strong> (released April 2026, $5/$25 per 1M tokens), <strong>Claude Sonnet 4.6</strong> ($3/$15), and <strong>Claude Haiku 4.5</strong> ($1/$5) — with Opus 4.7 and Sonnet 4.6 both supporting a full <strong>1-million-token context window</strong>.</p>
+            <h3 class="feature-panel__title">Overview</h3>
+            <p>The <a href="https://docs.anthropic.com" target="_blank">Anthropic API Documentation</a> is the official developer reference for Claude, the large language model family built by Anthropic. It is a complete technical guide covering everything required to integrate Claude into a software application — from API authentication and your first message request, to advanced features like tool use, vision processing, Extended Thinking, and prompt caching for cost optimization. As of April 2026, the current model lineup is <strong>Claude Opus 4.7</strong> (released April 2026, $5/$25 per 1M tokens), <strong>Claude Sonnet 4.6</strong> ($3/$15), and <strong>Claude Haiku 4.5</strong> ($1/$5) — with Opus 4.7 and Sonnet 4.6 both supporting a full <strong>1-million-token context window</strong>.</p>
             <p>Anthropic was founded with a specific focus on AI safety, and that philosophy shapes Claude's behavior: the model is designed to be helpful, harmless, and honest. Claude's flagship differentiator in 2025–2026 is <strong>Extended Thinking</strong> — a mode where Claude explicitly externalizes its reasoning chain before answering, similar to OpenAI's o-series models but with more developer control. You can set a token budget for thinking, and Claude uses that budget to reason through complex problems before producing its final response. Anthropic also released <strong>Adaptive Thinking</strong> on Haiku 4.5, which dynamically decides how much thinking to apply based on question complexity — making it highly efficient for mixed workloads.</p>
           </div>
 
@@ -105,7 +105,7 @@
 
           <!-- How is it relevant? -->
           <div class="feature-panel">
-            <h3 class="feature-panel__title">How is it relevant to your purpose?</h3>
+            <h3 class="feature-panel__title">Relevance to Your Audience</h3>
             <p>For developers building AI-powered applications, treating OpenAI as the only option is a strategic mistake. Claude offers several capabilities that matter specifically in application development contexts. The most significant is the <strong>1-million-token context window</strong> on Opus 4.7 and Sonnet 4.6 — enough to process an entire codebase, a multi-hundred-page legal document, or a year's worth of transcripts in a single API call. Even GPT-5.4 (OpenAI's 2026 flagship) maxes out at 1.05M tokens, making this a parity feature rather than the differentiator it once was — but Claude's context handling is generally praised as more reliable at extreme lengths.</p>
             <p>Claude's strongest differentiator for developers in 2026 is <strong>Extended Thinking</strong>: the ability to see Claude's reasoning process, set a thinking budget, and get dramatically better results on hard problems without changing your prompt structure. This is especially useful for coding, architecture decisions, and analysis tasks where you want transparency into <em>why</em> the model reached a conclusion. The API structure is also intentionally similar to OpenAI's, meaning LangChain and other frameworks support both providers through the same interface — switching is a one-line change. Knowing both APIs makes you a more versatile and competitive developer.</p>
           </div>

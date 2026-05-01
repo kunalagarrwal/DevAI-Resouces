@@ -15,12 +15,12 @@
       <nav class="devai-nav" aria-label="Primary">
         <ul class="devai-nav__list">
           <li><a href="index.html" class="devai-nav__link">Home</a></li>
+          <li><a href="prompting-guide.html" class="devai-nav__link is-current">Prompting Guide</a></li>
           <li><a href="openai-docs.html" class="devai-nav__link">OpenAI Docs</a></li>
           <li><a href="anthropic.html" class="devai-nav__link">Anthropic</a></li>
           <li><a href="huggingface.html" class="devai-nav__link">Hugging Face</a></li>
           <li><a href="tokenizer.html" class="devai-nav__link">Tokenizer</a></li>
           <li><a href="langchain.html" class="devai-nav__link">LangChain</a></li>
-          <li><a href="prompting-guide.html" class="devai-nav__link is-current">Prompting Guide</a></li>
         </ul>
         <div class="devai-search" id="devaiSearch">
           <button class="devai-search__btn" id="devaiSearchToggle" aria-label="Search" aria-expanded="false">
@@ -90,8 +90,8 @@
 
           <!-- What is this resource? -->
           <div class="feature-panel">
-            <h3 class="feature-panel__title">What is this resource?</h3>
-            <p>The Prompt Engineering Guide (promptingguide.ai) is a comprehensive, community-maintained reference covering techniques for writing effective prompts for large language models. It covers a wide spectrum — from the most basic principles of how to phrase instructions clearly, to advanced research-level techniques used in production AI systems and academic papers. What distinguishes this resource from the official documentation provided by OpenAI or Anthropic is its focus: while the official API docs explain <em>how to call</em> the model, this guide explains <em>how to communicate</em> with it effectively once it's working. It's one of the most thoroughly organized free resources on prompt engineering available.</p>
+            <h3 class="feature-panel__title">Overview</h3>
+            <p>The <a href="https://www.promptingguide.ai" target="_blank">Prompt Engineering Guide</a> (promptingguide.ai) is a comprehensive, community-maintained reference covering techniques for writing effective prompts for large language models. It covers a wide spectrum — from the most basic principles of how to phrase instructions clearly, to advanced research-level techniques used in production AI systems and academic papers. What distinguishes this resource from the official documentation provided by OpenAI or Anthropic is its focus: while the official API docs explain <em>how to call</em> the model, this guide explains <em>how to communicate</em> with it effectively once it's working. It's one of the most thoroughly organized free resources on prompt engineering available.</p>
             <p>Prompt engineering is the practice of designing inputs to a language model to reliably produce the outputs your application needs. It is not about magic phrases or hacks — it is a systematic discipline with documented techniques, each with specific use cases, tradeoffs, and limitations. As AI becomes integrated into more software products, the ability to write system prompts that produce consistent, well-structured, reliable outputs is becoming a core engineering skill alongside database design or API integration.</p>
           </div>
 
@@ -105,7 +105,7 @@
 
           <!-- How is it relevant? -->
           <div class="feature-panel">
-            <h3 class="feature-panel__title">How is it relevant to your purpose?</h3>
+            <h3 class="feature-panel__title">Relevance to Your Audience</h3>
             <p>Getting the API technically working is only half the challenge when building an AI-powered application. The other half is getting the model to produce outputs that are consistently useful, correctly formatted, and appropriately scoped. Poorly written prompts lead to outputs that are unpredictable, verbose, off-topic, or in the wrong format — and these failures manifest as application bugs that are hard to diagnose precisely because the model's behavior is not deterministic.</p>
             <p>Consider a concrete example: you're building a feature that extracts action items from a meeting transcript and returns them as a JSON array. Without proper prompt engineering, the model might return plain text bullet points, include unnecessary explanation, or add items that weren't mentioned. Adding a few-shot example to your system prompt — showing the model exactly what input maps to what JSON output — often eliminates all three problems immediately. In 2026, you can also use <strong>Structured Outputs</strong> (supported across the GPT-5.4 family) to guarantee schema-compliant JSON, which complements but doesn't fully replace good prompt engineering — you still need clear instructions, good context, and the right tone for your use case. The Prompt Engineering Guide gives you the vocabulary and the specific techniques to handle these situations systematically rather than by trial and error. For any developer building AI features that need to produce structured, reliable output, this guide is essential reading.</p>
           </div>
@@ -197,8 +197,8 @@ Now classify the review the user sends."""</span>
   <section class="band band--tint">
     <div class="layout-constrain">
       <div class="resource-nav">
-        <a href="langchain.html" class="resource-nav__btn resource-nav__btn--prev"><span class="resource-nav__label">&#8592; Previous</span><span class="resource-nav__title">LangChain Documentation</span></a>
-        <a href="index.html" class="resource-nav__btn resource-nav__btn--next"><span class="resource-nav__label">Next &#8594;</span><span class="resource-nav__title">Back to All Resources</span></a>
+        <span class="resource-nav__spacer"></span>
+        <a href="openai-docs.html" class="resource-nav__btn resource-nav__btn--next"><span class="resource-nav__label">Next &#8594;</span><span class="resource-nav__title">OpenAI Platform Documentation</span></a>
       </div>
     </div>
   </section>

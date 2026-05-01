@@ -15,12 +15,12 @@
       <nav class="devai-nav" aria-label="Primary">
         <ul class="devai-nav__list">
           <li><a href="index.html" class="devai-nav__link is-current">Home</a></li>
+          <li><a href="prompting-guide.html" class="devai-nav__link">Prompting Guide</a></li>
           <li><a href="openai-docs.html" class="devai-nav__link">OpenAI Docs</a></li>
           <li><a href="anthropic.html" class="devai-nav__link">Anthropic</a></li>
           <li><a href="huggingface.html" class="devai-nav__link">Hugging Face</a></li>
           <li><a href="tokenizer.html" class="devai-nav__link">Tokenizer</a></li>
           <li><a href="langchain.html" class="devai-nav__link">LangChain</a></li>
-          <li><a href="prompting-guide.html" class="devai-nav__link">Prompting Guide</a></li>
         </ul>
         <div class="devai-search" id="devaiSearch">
           <button class="devai-search__btn" id="devaiSearchToggle" aria-label="Search" aria-expanded="false">
@@ -88,6 +88,31 @@
             <p>Covers API documentation, token management, open-source models, LLM frameworks, prompt engineering, and developer communities.</p>
           </div>
         </div>
+
+        <h2 class="section-headline" style="margin-top:2.5rem">How This Guide Is Organized</h2>
+        <p>
+          The six resources in this guide are grouped into three complementary layers that build on one another.
+          The <strong>Prompt Engineering Guide</strong> is the conceptual foundation — it explains how to communicate
+          effectively with AI models, a skill that applies regardless of which API or framework you choose.
+          The <strong>API provider layer</strong> consists of the OpenAI Platform Documentation, the Anthropic API
+          Documentation, and Hugging Face: OpenAI is the most widely used starting point for commercial AI integration,
+          Anthropic offers powerful alternatives like Extended Thinking and a 1-million-token context window, and
+          Hugging Face opens the door to thousands of open-source models you can run without per-call API costs.
+          The <strong>tooling layer</strong> rounds out the guide with the OpenAI Tokenizer &amp; Tiktoken (for
+          understanding and controlling token costs) and LangChain (for composing API calls into production-grade,
+          multi-step AI workflows).
+        </p>
+        <p>
+          <strong>Recommended reading order:</strong> Begin with the Prompt Engineering Guide to build your mental
+          model for how to write system prompts and structure instructions — this foundation applies to every other
+          resource here. Next, work through the OpenAI Documentation (or Anthropic, depending on your provider choice)
+          to get a working API integration. Use Hugging Face when you need open-source alternatives, domain-specific
+          models, or want to avoid per-token costs entirely. Return to the Tokenizer &amp; Tiktoken resource before
+          going to production to set up cost monitoring and conversation management. Finally, add LangChain once you
+          are comfortable with direct API calls and need to build more complex, chained, or agent-driven workflows.
+          Each resource page in this guide cross-links to the others wherever they intersect, so you can follow
+          natural connections as your project evolves.
+        </p>
       </div>
     </section>
 
@@ -376,9 +401,20 @@
           </div>
           <ol class="toc-panel__list">
             <li>
-              <a href="openai-docs.html">
+              <a href="prompting-guide.html">
                 <span class="toc-panel__meta">
                   <span class="toc-panel__index">01</span>
+                  <span class="toc-panel__difficulty"><span class="devai-difficulty devai-difficulty--beginner"><span class="devai-difficulty__dot"></span>Beginner Friendly</span></span>
+                </span>
+                <span class="toc-panel__title">Prompt Engineering Guide</span>
+                <span class="toc-panel__summary">Start here. A comprehensive, community-maintained guide to writing effective prompts for LLMs — covers zero-shot, few-shot, and chain-of-thought techniques that apply to every other resource in this guide.</span>
+                <span class="toc-panel__cta">Open Resource <span class="toc-panel__cta-arrow" aria-hidden="true">→</span></span>
+              </a>
+            </li>
+            <li>
+              <a href="openai-docs.html">
+                <span class="toc-panel__meta">
+                  <span class="toc-panel__index">02</span>
                   <span class="toc-panel__difficulty"><span class="devai-difficulty devai-difficulty--beginner"><span class="devai-difficulty__dot"></span>Beginner Friendly</span></span>
                 </span>
                 <span class="toc-panel__title">OpenAI Platform Documentation</span>
@@ -389,55 +425,44 @@
             <li>
               <a href="anthropic.html">
                 <span class="toc-panel__meta">
-                  <span class="toc-panel__index">02</span>
+                  <span class="toc-panel__index">03</span>
                   <span class="toc-panel__difficulty"><span class="devai-difficulty devai-difficulty--intermediate"><span class="devai-difficulty__dot"></span>Intermediate</span></span>
                 </span>
                 <span class="toc-panel__title">Anthropic API Documentation</span>
-                <span class="toc-panel__summary">Official documentation for Claude, Anthropic's LLM. A strong alternative to OpenAI with a focus on safety and long context windows — useful for document-heavy or complex applications.</span>
+                <span class="toc-panel__summary">Official documentation for Claude, Anthropic's LLM. A strong alternative to OpenAI with Extended Thinking and 1M-token context windows — useful for document-heavy or complex reasoning applications.</span>
                 <span class="toc-panel__cta">Open Resource <span class="toc-panel__cta-arrow" aria-hidden="true">→</span></span>
               </a>
             </li>
             <li>
               <a href="huggingface.html">
                 <span class="toc-panel__meta">
-                  <span class="toc-panel__index">03</span>
+                  <span class="toc-panel__index">04</span>
                   <span class="toc-panel__difficulty"><span class="devai-difficulty devai-difficulty--intermediate"><span class="devai-difficulty__dot"></span>Intermediate</span></span>
                 </span>
                 <span class="toc-panel__title">Hugging Face</span>
-                <span class="toc-panel__summary">A platform for open-source AI models and datasets. Ideal for developers who want to self-host models, avoid API costs, or fine-tune models on their own data.</span>
+                <span class="toc-panel__summary">A platform for open-source AI models and datasets. Ideal for developers who want to self-host models, avoid per-call API costs, or fine-tune models on their own data.</span>
                 <span class="toc-panel__cta">Open Resource <span class="toc-panel__cta-arrow" aria-hidden="true">→</span></span>
               </a>
             </li>
             <li>
               <a href="tokenizer.html">
                 <span class="toc-panel__meta">
-                  <span class="toc-panel__index">04</span>
+                  <span class="toc-panel__index">05</span>
                   <span class="toc-panel__difficulty"><span class="devai-difficulty devai-difficulty--beginner"><span class="devai-difficulty__dot"></span>Beginner Friendly</span></span>
                 </span>
                 <span class="toc-panel__title">OpenAI Tokenizer &amp; Tiktoken</span>
-                <span class="toc-panel__summary">An interactive tool and Python library for understanding and managing token usage. Essential for controlling costs and optimizing how your app communicates with LLMs.</span>
+                <span class="toc-panel__summary">An interactive tool and Python library for understanding and managing token usage. Essential for controlling costs and preventing context-window overflow before deploying to production.</span>
                 <span class="toc-panel__cta">Open Resource <span class="toc-panel__cta-arrow" aria-hidden="true">→</span></span>
               </a>
             </li>
             <li>
               <a href="langchain.html">
                 <span class="toc-panel__meta">
-                  <span class="toc-panel__index">05</span>
+                  <span class="toc-panel__index">06</span>
                   <span class="toc-panel__difficulty"><span class="devai-difficulty devai-difficulty--intermediate"><span class="devai-difficulty__dot"></span>Intermediate</span></span>
                 </span>
                 <span class="toc-panel__title">LangChain Documentation</span>
-                <span class="toc-panel__summary">A framework for building applications powered by LLMs. Simplifies chaining prompts, connecting to data sources, and building more advanced AI workflows beyond simple API calls.</span>
-                <span class="toc-panel__cta">Open Resource <span class="toc-panel__cta-arrow" aria-hidden="true">→</span></span>
-              </a>
-            </li>
-            <li>
-              <a href="prompting-guide.html">
-                <span class="toc-panel__meta">
-                  <span class="toc-panel__index">06</span>
-                  <span class="toc-panel__difficulty"><span class="devai-difficulty devai-difficulty--beginner"><span class="devai-difficulty__dot"></span>Beginner Friendly</span></span>
-                </span>
-                <span class="toc-panel__title">Prompt Engineering Guide</span>
-                <span class="toc-panel__summary">A comprehensive, community-maintained guide to writing effective prompts for LLMs. Covers core techniques like few-shot prompting, chain-of-thought, and prompt formatting best practices.</span>
+                <span class="toc-panel__summary">A framework for building applications powered by LLMs. Builds on all prior resources in this guide — simplifies chaining prompts, connecting to data sources, and composing advanced AI workflows.</span>
                 <span class="toc-panel__cta">Open Resource <span class="toc-panel__cta-arrow" aria-hidden="true">→</span></span>
               </a>
             </li>
