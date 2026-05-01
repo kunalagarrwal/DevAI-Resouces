@@ -2,7 +2,7 @@
 
 > **Integrating AI Into Your Application** · Penn State ENGL/IST · Kunal Agarwal  
 > Live site → [sites.psu.edu/devairesources](https://sites.psu.edu/devairesources)  
-> GitHub Pages → [kunalagarrwal.github.io/devai-resources](https://kunalagarrwal.github.io/devai-resources)
+> GitHub Pages → [kunalagarrwal.github.io/devai-resources](https://kunalagarrwal.github.io/DevAI-Resouces)
 
 ---
 
